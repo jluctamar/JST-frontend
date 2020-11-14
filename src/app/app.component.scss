@@ -1,0 +1,58 @@
+@import '../styles.scss';
+
+.content-container {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+
+    mat-toolbar {
+        background: $toolbar;
+    
+        button {
+            background: $toolbar;
+        }
+    
+        h1 {
+            color: $light-grey;
+            font-family: 'Montserrat Subrayada', sans-serif;
+            font-size: 250%;
+            margin: 0 auto;
+        }
+    }
+    
+    mat-sidenav-container {
+        flex: 1;
+    
+        mat-sidenav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            background: $blue-grey;
+    
+            a {
+                border-radius: 0;
+                text-decoration: none;
+                padding: 15% 1em;
+                width: inherit;
+    
+                .nav-item {
+                    color: $light-grey;
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 160%;
+                    font-weight: bold;
+                    margin: 0 auto;
+                }
+            }
+    
+            a:hover {
+                background-color: $dark-grey;
+            }
+        }
+    }
+}
+
+i {
+    color: $light-grey;
+    font-size: 48px;
+}
