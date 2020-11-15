@@ -1,0 +1,41 @@
+@import '../../../styles.scss';
+
+
+#tile {
+    display: flex;
+    flex-flow: column;
+    border: 1px solid black;
+
+    #name {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin: 1% auto;
+        text-align: center;
+        font-weight: bold;
+
+        a {
+            color: $blue-grey;
+            font-family: $font;
+            font-size: 120%;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: $dark-grey;
+        }
+    }
+
+    #picture {
+        height: 80%;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+
+
+        img {
+            object-fit: contain;
+        }
+    }
+}

@@ -12,6 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -25,7 +26,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatSidenavModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

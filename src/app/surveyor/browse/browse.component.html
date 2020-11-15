@@ -1,0 +1,13 @@
+<div id='wrapper'>
+    <mat-grid-list cols="3" rowHeight="1:1">
+      <mat-grid-tile *ngFor="let item of browsingImg" id="tile">
+        <div id="picture">
+            <img [src]="item.imgSrc" [alt]="item.title">
+        </div>
+        <br>
+        <div id="name">
+            <a routerLink="">{{ item.title }}</a>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>

@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Jays-special-trays';
   sessionUser: boolean = false;
-  
 }
