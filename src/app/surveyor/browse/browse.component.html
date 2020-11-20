@@ -1,12 +1,13 @@
-<div id='wrapper'>
+<div class='wrapper'>
     <mat-grid-list cols="3" rowHeight="1:1">
-      <mat-grid-tile *ngFor="let item of browsingImg" id="tile">
-        <div id="picture">
+      <mat-grid-tile *ngFor="let item of browsingImg" class="tile">
+        <div class="img-container">
             <img [src]="item.imgSrc" [alt]="item.title">
-        </div>
+          </div>
+          <div class="hover-highlight"></div>
         <br>
-        <div id="name">
-            <a routerLink="">{{ item.title }}</a>
+        <div class="name">
+            <h3 >{{ item.title }}</h3>
         </div>
       </mat-grid-tile>
     </mat-grid-list>

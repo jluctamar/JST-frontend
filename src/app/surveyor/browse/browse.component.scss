@@ -1,41 +1,47 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
 
-
-#tile {
+.wrapper {
+  .tile {
     display: flex;
     flex-flow: column;
     border: 1px solid black;
 
-    #name {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        margin: 1% auto;
-        text-align: center;
-        font-weight: bold;
+    .name {
+      position: absolute;
+      top: 32px;
+      right: 0;
+      left: 0;
+      margin: 1% auto;
+      text-align: center;
+      font-weight: bold;
 
-        a {
-            color: $blue-grey;
-            font-family: $font;
-            font-size: 120%;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: $dark-grey;
-        }
+      h3 {
+        color: $blue-grey;
+        font-family: $font;
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
     }
 
-    #picture {
-        height: 80%;
-        flex: 1;
-        display: flex;
-        justify-content: center;
+    .img-container {
+      height: 100%;
+      flex: 1;
+      display: flex;
+      justify-content: center;
 
-
-        img {
-            object-fit: contain;
+      img {
+        object-fit: contain;
+        transition-duration: 0.3s;
+        transition-property: transform;
+        &:hover {
+          transform: scale(1.1);
+          -moz-box-shadow: inset 10px 10px 50px #fff;
+          -webkit-box-shadow: inset 10px 10px 50px #fff;
+          box-shadow: inset 10px 10px 50px #fff;
         }
+      }
     }
+
+  }
 }

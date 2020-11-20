@@ -13,6 +13,8 @@ export class BrowseComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+    // TODO:fetch this data from a databese:
     this.browsingImg = [
       {
         title: 'Diri Blanc ak Legume',
