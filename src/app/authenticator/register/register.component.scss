@@ -1,0 +1,68 @@
+@import "../../../styles.scss";
+
+.register-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+
+  mat-card {
+    margin: 0 auto;
+    width: 28%;
+
+    mat-card-header {
+      justify-content: center;
+      margin-bottom:12px;
+
+      mat-card-title {
+        color: $dark-grey;
+        font-family: $font;
+        font-size: 2rem;
+        font-weight: 700;
+      }
+    }
+
+    mat-card-content {
+      justify-content: center;
+      .form-container {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: wrap;
+        padding-left: 8px;
+        padding-right: 8px;
+        input {
+          color: $dark-grey;
+          font-family: $font;
+          font-size: 1rem;
+        }
+      }
+
+      .action-container {
+          display: flex;
+          justify-content: flex-end;
+          padding-right: 8px;
+        button {
+          background-color: $blue-grey;
+          color: $light-grey;
+          font-family: $font;
+          font-size: 120%;
+
+          &:hover {
+            background-color: $dark-grey;
+          }
+          &.loginBtn {
+            background-color: transparent;
+            color: $blue-grey;
+            font-family: $font;
+            font-size: 1rem;
+            width: 100px;
+            margin-left: 8px;
+            &:hover {
+              background-color: $light-grey;
+            }
+          }
+        }
+      }
+    }
+  }
+}

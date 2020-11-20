@@ -1,0 +1,71 @@
+@import '../../../styles.scss';
+
+.login-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+
+    mat-card {
+        margin: 0 auto;
+        width: 20%;
+
+        mat-card-header {
+            justify-content: center;
+            margin-bottom: 12px;
+
+            mat-card-title {
+                color: $dark-grey;
+                font-family: $font;
+                font-size: 2rem;
+                font-weight: 700;
+            }
+        }
+
+        mat-card-content {
+            justify-content: center;
+            
+
+            .form-container {
+                display: flex;
+                flex-direction: column;
+                input {
+                    color: $dark-grey;
+                    font-family: $font;
+                    font-size: 1rem;
+                }
+
+            }
+
+
+            .action-container {
+                margin-top: 8px;
+                display: flex;
+                flex-direction: column;
+                
+                button {
+                    background-color: $blue-grey;
+                    color: $light-grey;
+                    font-family: $font;
+                    font-size: 1rem;
+                    width: 100px;
+                    &.registerBtn {
+                        background-color: transparent;
+                        color: $blue-grey;
+                        font-family: $font;
+                        font-size: 1rem;
+                        width: 100px;
+                        margin-top: 8px;
+                        &:hover {
+                            background-color: $light-grey;
+                        }
+                    }
+                    &:hover {
+                        background-color: $dark-grey;
+                    }
+                }            
+
+            }
+        }
+    }
+}

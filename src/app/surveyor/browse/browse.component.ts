@@ -27,7 +27,7 @@ export class BrowseComponent implements OnInit {
         imgSrc: '../../assets/dish3.jpg'
       },
       {
-        title: 'Diri Blan ak Pol',
+        title: 'Diri Blan ak Poul',
         imgSrc: '../../assets/dish4.jpg'
       },
       {
@@ -39,11 +39,11 @@ export class BrowseComponent implements OnInit {
         imgSrc: '../../assets/dish6.jpg'
       },
       {
-        title: 'Diri, Pol, Piklese',
-        imgSrc: '../../assets/dish7.png'
+        title: 'Diri, Poul, Piklese',
+        imgSrc: '../../assets/dish7.jpg'
       },
       {
-        title: 'Pol ak Bannan Peze ak Salad',
+        title: 'Poul ak Bannan Peze ak Salad',
         imgSrc: '../../assets/dish8.jpg'
       },
       {
@@ -55,7 +55,7 @@ export class BrowseComponent implements OnInit {
         imgSrc: '../../assets/dish10.jpg'
       },
       {
-        title: 'Sos Pol',
+        title: 'Sos Poul',
         imgSrc: '../../assets/dish11.jpg'
       },
       {

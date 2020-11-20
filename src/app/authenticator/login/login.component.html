@@ -1,0 +1,25 @@
+<div class="login-wrapper">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+    
+      <mat-card-content>
+
+        <div class="form-container">
+          <mat-form-field appearance="outline">
+            <input matInput type="text" placeholder="Username" id="username" [(ngModel)]="user.username">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <input matInput type="password" placeholder="Password" id="password" [(ngModel)]="user.password">
+          </mat-form-field>
+        </div>
+        
+        <div class="action-container">
+            <button mat-flat-button type="button" (click)="onLogin()">Login</button>
+            <button mat-button class="registerBtn" type="button" (click)="onNavigateToRegister()">Register</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
