@@ -32,6 +32,10 @@
           <a mat-button id="logout" matTooltip="Logout" matTooltipPosition="right" routerLink="/auth/logout" *ngIf="sessionUser">
               <div id="logout-nav" class="nav-item">Logout</div>
           </a>
+          <br>
+          <a mat-button id="close-nav" matTooltip="Close" matTooltipPosition="right" (click)="onSideNavToggle()">
+              <div id="logout-nav" class="nav-item">Close</div>
+          </a>
       </mat-sidenav>
 
       <router-outlet id="router-out"></router-outlet>
