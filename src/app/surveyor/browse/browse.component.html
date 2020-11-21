@@ -13,6 +13,7 @@
   <div class="details-overlay" *ngIf="showDetails">
     <app-item-details
       *ngIf="showDetails"
+      @simpleInOutAnimation
       [dish]="selectedDish"
       (closeDetails)="onCloseDetails()"></app-item-details>
   </div>

@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { DishImage } from 'src/app/interfaces/surveyor-interfaces';
+import { simpleInOutAnimation } from 'src/app/shared/animations';
 
 @Component({
   selector: 'app-browse',
   templateUrl: './browse.component.html',
-  styleUrls: ['./browse.component.scss']
+  styleUrls: ['./browse.component.scss'],
+  animations: [simpleInOutAnimation]
 })
 export class BrowseComponent implements OnInit {
 
