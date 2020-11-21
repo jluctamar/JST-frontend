@@ -1,0 +1,108 @@
+@import '../../../styles.scss';
+
+.profile-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .profile-card {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: 70%;
+
+    .mat-card-header {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
+      height: 30%;
+
+      .mat-card-title {
+        font-size: 1.8rem;
+      }
+
+      .circle-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70px;
+        height: 70px;
+        border: 2px solid rgb(119, 119, 119);
+        border-radius: 100px;
+        margin-bottom: 16px;
+        box-shadow: -7px 12px 19px rgba(218, 167, 130, 0.5);
+
+        .user-avatar {
+          font-size: 3rem;
+          letter-spacing: -3px;
+        }
+      }
+    }
+
+    .mat-card-content {
+      display: flex;
+      flex-direction: column;
+      height: 70%;
+
+      .user-details {
+        height: 100%;
+        overflow-y: auto;
+        .static-details {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+
+          .username,
+          .email,
+          .password {
+            font-size: 1.3rem;
+            margin-top: 32px;
+          }
+        }
+
+        .update-container {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          .mat-form-field {
+            width: 300px;
+
+            .mat-label {
+              font-size: 1.1rem;
+            }
+          }
+        }
+      }
+
+      .action-container {
+        display: flex;
+        justify-content: flex-end;
+
+        .update, .confirm {
+            background-color: $blue-grey;
+            color: $light-grey;
+            font-family: $font;
+            font-size: 1rem;
+            width: 100px;
+            &:hover {
+                background-color: $dark-grey;
+            }
+        }
+
+        .cancel {
+            color: $blue-grey;
+            font-family: $font;
+            font-size: 1rem;
+            width: 100px;
+            margin-left: 8px;
+            &:hover {
+                background-color: $light-grey;
+            }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<div class="profile-wrapper">
+   <mat-card class="profile-card">
+    <mat-card-header>
+      <mat-card-title>{{ currUser.firstName}} {{currUser.lastName}}</mat-card-title>
+      <div class="circle-container">
+        <div class="user-avatar">{{currUser.firstName | slice:0:1 | titlecase}}{{currUser.lastName | slice:0:1 | titlecase}}</div>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="user-details">
+            <div class="static-details" *ngIf="!isUpdatingUser">
+                <h4 class="username">{{currUser.username}}</h4>
+                <h4 class="email">{{currUser.email}}</h4>
+                <h4 class="password">********</h4>
+            </div>
+            <div class="update-container" *ngIf="isUpdatingUser">
+                <mat-form-field appearance="standard">
+                    <mat-label>{{currUser.username}}</mat-label>
+                    <input matInput placeholder="Update Username">
+                    </mat-form-field>
+                <mat-form-field appearance="standard">
+                    <mat-label>{{currUser.email}}</mat-label>
+                    <input matInput placeholder="Update Email"  pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" >
+                    </mat-form-field>
+                <mat-form-field appearance="standard">
+                    <mat-label>Update Password</mat-label>
+                    <input matInput placeholder="*********">
+                    </mat-form-field> 
+            </div>
+        </div> 
+        <div class="action-container">
+            <button mat-flat-button class="update" *ngIf="!isUpdatingUser" (click)="onUserUpdate('update')">Update</button>
+            <button mat-flat-button class="confirm" *ngIf="isUpdatingUser" (click)="onUserUpdate('confirm')">Confirm</button>
+            <button mat-flat-button class="cancel" *ngIf="isUpdatingUser" (click)="onUserUpdate('cancel')">Cancel</button>
+        </div>
+      
+    </mat-card-content>
+  </mat-card>
+</div>

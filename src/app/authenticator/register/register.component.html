@@ -13,7 +13,7 @@
             placeholder="First Name"
             id="firstName"
             [(ngModel)]="user.firstName"
-          />
+            required/>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
@@ -23,7 +23,7 @@
             placeholder="Last Name "
             id="lastName"
             [(ngModel)]="user.lastName"
-          />
+            required/>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
@@ -33,7 +33,7 @@
             placeholder="Username"
             id="username"
             [(ngModel)]="user.username"
-          />
+            required/>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
@@ -43,7 +43,18 @@
             placeholder="Password"
             id="password"
             [(ngModel)]="user.password"
-          />
+            required/>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            type="email"
+            placeholder="Email"
+            id="email"
+            [(ngModel)]="user.email"
+            pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" 
+            required/>
         </mat-form-field>
       </div>
 
