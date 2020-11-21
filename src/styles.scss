@@ -5,8 +5,14 @@
 $blue-grey: mat-color($mat-blue-grey, 700);
 $dark-grey: mat-color($mat-grey, 900);
 $light-grey: mat-color($mat-grey, 200);
+$browse-color: #d1b483;
 $toolbar: mat-color($mat-blue-grey, 900);
 $font: 'Montserrat', sans-serif;
+$text-shadow: #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, 
+#000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, 
+#000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, 
+#000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, 
+#000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px;
 
 
 html, body { height: 100%; }

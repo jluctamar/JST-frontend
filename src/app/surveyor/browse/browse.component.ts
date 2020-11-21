@@ -9,6 +9,8 @@ import { DishImage } from 'src/app/interfaces/surveyor-interfaces';
 export class BrowseComponent implements OnInit {
 
   browsingImg: DishImage[];
+  selectedDish: DishImage;
+  showDetails = false;
 
   constructor() { }
 
@@ -65,6 +67,17 @@ export class BrowseComponent implements OnInit {
         imgSrc: '../../assets/dish12.jpg'
       },
     ];
+  }
+
+
+  onShowDetails(selected: DishImage): void {
+    console.log('inside show details method, selected: ', selected.title);
+    this.selectedDish = selected;
+    this.showDetails = true;
+  }
+  onCloseDetails(): void {
+    this.showDetails = false;
+    this.selectedDish = null;
   }
 
 }
