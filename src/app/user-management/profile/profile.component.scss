@@ -1,6 +1,8 @@
 @import '../../../styles.scss';
 
 .profile-wrapper {
+ background-image: url('../../../assets/profile-background2.jpg');
+ background-size: cover;
   height: 100%;
   width: 100%;
   display: flex;
