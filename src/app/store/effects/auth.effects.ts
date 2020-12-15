@@ -16,6 +16,7 @@ import {
   register,
   registerSuccess,
   registerFailure,
+  logout,
 } from '../actions/authenticator.actions';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
@@ -67,4 +68,11 @@ export class AuthEffects {
       tap(() => this.router.navigate(['/auth/login']))
     );
   },  { dispatch: false });
+
+  logout$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(logout),
+      tap(() => this.router.navigate(['/']))
+    );
+  });
 }

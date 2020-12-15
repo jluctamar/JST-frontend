@@ -1,7 +1,7 @@
 import { createReducer, on, State } from '@ngrx/store';
 import { AuthState } from 'src/app/app-state';
 import { User } from 'src/app/interfaces/authenticator-interfaces';
-import { login, loginFailure, loginSuccess, register, registerFailure, registerSuccess } from '../actions/authenticator.actions';
+import { login, loginFailure, loginSuccess, logout, register, registerFailure, registerSuccess } from '../actions/authenticator.actions';
 
 
 export const initialState: AuthState = {
@@ -43,6 +43,14 @@ export const authReducer = createReducer(initialState,
         ...state,
         respMsg: action.respMsg
     }
-  })
+  }),
+  on(logout, (state, action) => {
+    return {
+        ...state,
+        isLoggedIn: false,
+        user: null,
+        respMsg: "Logout Successfull"
+    }
+  }),
 );
 

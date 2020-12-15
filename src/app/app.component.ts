@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { filter } from 'rxjs/operators';
 import { AppState } from './app-state';
 import { selectIsLoggedIn } from './store/selectors/auth.selectors';
+import { logout } from 'src/app/store/actions/authenticator.actions';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,10 @@ export class AppComponent {
         console.log('##### Result ', state);
         this.loggedInUser = state;
       });
+  }
+
+  onLogout(): void {
+    this.store.dispatch(logout());
   }
 
   onSideNavToggle(): void {

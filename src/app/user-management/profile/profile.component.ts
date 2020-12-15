@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { filter } from 'rxjs/operators';
+import { AppState } from 'src/app/app-state';
 import { User } from 'src/app/interfaces/authenticator-interfaces';
+import { selectLoggedInUser } from 'src/app/store/selectors/auth.selectors';
 
 @Component({
   selector: 'app-profile',
@@ -9,16 +13,17 @@ import { User } from 'src/app/interfaces/authenticator-interfaces';
 export class ProfileComponent implements OnInit {
   currUser: User;
   isUpdatingUser = false;
-  constructor() {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.currUser = {
-      firstName: 'admin',
-      lastName: 'user',
-      username: 'admin',
-      password: 'admin',
-      email: 'adminUser@gmail.com',
-    };
+
+    this.store
+    .select(selectLoggedInUser)
+    .pipe(filter((state) => !!state))
+    .subscribe((user) => {
+      console.log('##### Result ', user);
+      this.currUser = user;
+    });
   }
 
   onUserUpdate(action: string): void {

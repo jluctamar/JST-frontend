@@ -28,6 +28,6 @@ export class RegisterComponent implements OnInit {
 
   onRegister(): void {
     console.log('inside register function');
-    this.store.dispatch(register({ user: this.user }));
+    this.store.dispatch( register({ user: this.user }));
   }
 }

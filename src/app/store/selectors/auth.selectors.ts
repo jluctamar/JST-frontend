@@ -10,3 +10,9 @@ export const selectIsLoggedIn = createSelector(
     (state) => state?.auth?.isLoggedIn,
     (auth) => auth?.isLoggedIn
 )
+
+export const selectLoggedInUser = createSelector(
+    selectAuthFeature,
+    (state) => state?.auth?.user,
+    (auth) => auth?.user
+)
