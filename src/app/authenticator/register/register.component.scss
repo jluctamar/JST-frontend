@@ -1,7 +1,7 @@
 @import "../../../styles.scss";
 
 .register-wrapper {
-  background-image: url('../../../assets/login-background2.jpg');
+  background-image: url("../../../assets/login-background2.jpg");
   background-size: cover;
   display: flex;
   align-items: center;
@@ -14,7 +14,7 @@
 
     mat-card-header {
       justify-content: center;
-      margin-bottom:12px;
+      margin-bottom: 12px;
 
       mat-card-title {
         color: $dark-grey;
@@ -41,14 +41,19 @@
       }
 
       .action-container {
-          display: flex;
-          justify-content: flex-end;
-          padding-right: 8px;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 8px;
         button {
           background-color: $blue-grey;
           color: $light-grey;
           font-family: $font;
           font-size: 120%;
+
+          &:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+          }
 
           &:hover {
             background-color: $dark-grey;

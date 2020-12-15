@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app-state';
 import { User } from 'src/app/interfaces/authenticator-interfaces';
+import { login } from 'src/app/store/actions/authenticator.actions';
 
 @Component({
   selector: 'app-login',
@@ -10,13 +13,14 @@ import { User } from 'src/app/interfaces/authenticator-interfaces';
 export class LoginComponent implements OnInit {
 
   user: User = { };
-  constructor(private router: Router) { }
+  constructor(private router: Router,private store: Store<AppState>) { }
 
   ngOnInit(): void {
   }
 
   onLogin(): void {
     console.log('inside login function');
+    this.store.dispatch(login({username: this.user.username, password: this.user.password}))
   }
 
   onNavigateToRegister(): void {

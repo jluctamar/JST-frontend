@@ -5,6 +5,11 @@ import { SharedModule } from '../shared/shared.module';
 import { AuthenticatorRoutingModule } from './authenticator-routing.module';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from '../store/effects/auth.effects';
+import { StoreModule } from '@ngrx/store';
+import { AUTH_FEATURE_KEY } from '../app.constants';
+import { authReducer } from '../store/reducers/authenticator.reducer';
 
 
 
@@ -14,7 +19,10 @@ import { RegisterComponent } from './register/register.component';
     CommonModule,
     FormsModule,
     SharedModule,
-    AuthenticatorRoutingModule
+    AuthenticatorRoutingModule,
+    EffectsModule.forFeature([AuthEffects]),
+    StoreModule.forFeature(AUTH_FEATURE_KEY, authReducer)
+    
   ]
 })
 export class AuthenticatorModule { }

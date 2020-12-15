@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 
 /**  CSS VARIABLES  */
 $blue-grey: mat-color($mat-blue-grey, 700);
@@ -7,18 +7,21 @@ $dark-grey: mat-color($mat-grey, 900);
 $light-grey: mat-color($mat-grey, 200);
 $browse-color: #d1b483;
 $toolbar: mat-color($mat-blue-grey, 900);
-$font: 'Montserrat', sans-serif;
-$text-shadow: #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, 
-#000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, 
-#000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, 
-#000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, 
-#000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px;
+$font: "Montserrat", sans-serif;
+$text-shadow: #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px,
+  #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px,
+  #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px,
+  #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px;
 
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .mat-card {
-    background-color: #d5d6d7;;
+  background-color: #d5d6d7;
 }
