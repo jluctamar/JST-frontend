@@ -14,7 +14,7 @@
             <input matInput type="password" placeholder="Password" name="password" [(ngModel)]="user.password" required>
           </mat-form-field>
         </form>
-        <div>{{ loginForm.valid }}</div>
+
         <div class="action-container">
             <button mat-flat-button type="button" [disabled]="!loginForm.valid" (click)="onLogin()">Login</button>
             <button mat-button type="button" class="registerBtn"  (click)="onNavigateToRegister()">Register</button>
