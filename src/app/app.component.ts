@@ -21,7 +21,7 @@ export class AppComponent {
   ngOnInit(): void {
     this.store
       .select(selectIsLoggedIn)
-      .pipe(filter((state) => !!state))
+      //.pipe(filter((state) => !!state))
       .subscribe((state) => {
         console.log('##### Result ', state);
         this.loggedInUser = state;

@@ -29,7 +29,7 @@
           </a>
        
           <br *ngIf="loggedInUser">
-          <a mat-button id="logout" matTooltip="Logout" matTooltipPosition="right" routerLink="/auth/logout" *ngIf="loggedInUser">
+          <a mat-button id="logout" matTooltip="Logout" matTooltipPosition="right" routerLink="" (click)="onLogout()" *ngIf="loggedInUser">
               <div id="logout-nav" class="nav-item">Logout</div>
           </a>
           <br>
