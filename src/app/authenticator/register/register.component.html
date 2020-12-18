@@ -5,13 +5,13 @@
     </mat-card-header>
 
     <mat-card-content>
-      <div class="form-container">
+      <form #registerForm="ngForm" class="form-container">
         <mat-form-field appearance="outline">
           <input
             matInput
             type="text"
             placeholder="First Name"
-            id="firstName"
+            name="firstName"
             [(ngModel)]="user.firstName"
             required/>
         </mat-form-field>
@@ -21,7 +21,7 @@
             matInput
             type="text"
             placeholder="Last Name "
-            id="lastName"
+            name="lastName"
             [(ngModel)]="user.lastName"
             required/>
         </mat-form-field>
@@ -31,7 +31,7 @@
             matInput
             type="text"
             placeholder="Username"
-            id="username"
+            name="username"
             [(ngModel)]="user.username"
             required/>
         </mat-form-field>
@@ -41,7 +41,7 @@
             matInput
             type="password"
             placeholder="Password"
-            id="password"
+            name="password"
             [(ngModel)]="user.password"
             required/>
         </mat-form-field>
@@ -51,18 +51,20 @@
             matInput
             type="email"
             placeholder="Email"
-            id="email"
+            name="email"
+            pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" 
             [(ngModel)]="user.email"
             
             required/>
         </mat-form-field>
-      </div>
+      </form>
 
       <div class="action-container">
         <button
           mat-button
           class="registerBtn"
           type="button"
+          [disabled]="!registerForm.valid"
           (click)="onRegister()"
         >
           Register

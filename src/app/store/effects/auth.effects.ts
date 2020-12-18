@@ -73,7 +73,6 @@ export class AuthEffects {
     return this.actions$.pipe(
       ofType(logout),
       tap(() => {
-        console.log('####### testing......');
         return this.router.navigate(['/'])}),
       map(() => { return {type: 'NO_ACTION'}; }) // Without this "no action" Action the tap above causes a continual loop.
     )

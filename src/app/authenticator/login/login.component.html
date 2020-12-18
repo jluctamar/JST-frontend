@@ -6,18 +6,18 @@
     
       <mat-card-content>
 
-        <div class="form-container">
+        <form #loginForm="ngForm" class="form-container">
           <mat-form-field appearance="standard">
-            <input matInput type="text" placeholder="Username" id="username" [(ngModel)]="user.username">
+            <input matInput type="text" placeholder="Username" name="username" [(ngModel)]="user.username" required>
           </mat-form-field>
           <mat-form-field appearance="standard">
-            <input matInput type="password" placeholder="Password" id="password" [(ngModel)]="user.password">
+            <input matInput type="password" placeholder="Password" name="password" [(ngModel)]="user.password" required>
           </mat-form-field>
-        </div>
-        
+        </form>
+        <div>{{ loginForm.valid }}</div>
         <div class="action-container">
-            <button mat-flat-button type="button" (click)="onLogin()">Login</button>
-            <button mat-button class="registerBtn" type="button" (click)="onNavigateToRegister()">Register</button>
+            <button mat-flat-button type="button" [disabled]="!loginForm.valid" (click)="onLogin()">Login</button>
+            <button mat-button type="button" class="registerBtn"  (click)="onNavigateToRegister()">Register</button>
         </div>
       </mat-card-content>
     </mat-card>

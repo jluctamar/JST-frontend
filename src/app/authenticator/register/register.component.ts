@@ -12,11 +12,11 @@ import { register } from 'src/app/store/actions/authenticator.actions';
 })
 export class RegisterComponent implements OnInit {
   user: User = {
-    email: 'email@email.com',
-    firstName: 'Bob',
-    lastName: 'bob',
-    password: 'password',
-    username: 'username',
+    email: '',
+    firstName: '',
+    lastName: '',
+    password: '',
+    username: '',
   };
   constructor(private router: Router, private store: Store<AppState>) {}
 
@@ -27,7 +27,14 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegister(): void {
-    console.log('inside register function');
+    console.log('inside register function ', this.user);
     this.store.dispatch( register({ user: this.user }));
+    this.user = {
+      email: '',
+      firstName: '',
+      lastName: '',
+      password: '',
+      username: '',
+    };
   }
 }

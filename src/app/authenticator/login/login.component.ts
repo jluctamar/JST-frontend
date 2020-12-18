@@ -12,7 +12,10 @@ import { login } from 'src/app/store/actions/authenticator.actions';
 })
 export class LoginComponent implements OnInit {
 
-  user: User = { };
+  user: User = {
+    firstName: '',
+    lastName: ''
+   };
   constructor(private router: Router,private store: Store<AppState>) { }
 
   ngOnInit(): void {
@@ -21,6 +24,10 @@ export class LoginComponent implements OnInit {
   onLogin(): void {
     console.log('inside login function');
     this.store.dispatch(login({username: this.user.username, password: this.user.password}))
+    this.user =  {
+      firstName: '',
+      lastName: ''
+     };
   }
 
   onNavigateToRegister(): void {
