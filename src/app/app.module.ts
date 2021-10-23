@@ -11,6 +11,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatIconModule} from '@angular/material/icon';
 import { StoreModule } from '@ngrx/store';
 import { authReducer } from './store/reducers/authenticator.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -33,6 +34,7 @@ import { EffectsModule } from '@ngrx/effects';
     MatToolbarModule,
     MatTooltipModule,
     MatCheckboxModule,
+    MatIconModule,
     StoreModule.forRoot({ }),
     EffectsModule.forRoot([]),
    !environment.production ? StoreDevtoolsModule.instrument() : [],

@@ -2,21 +2,43 @@
 
 .content-container {
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
     height: 100%;
 
-    mat-toolbar {
+    .main-header {
         background: $toolbar;
     
-        button {
+        .menu-btn {
             background: $toolbar;
+            color: white;
         }
     
-        h1 {
-            color: $light-grey;
-            font-family: 'Montserrat Subrayada', sans-serif;
-            font-size: 250%;
-            margin: 0 auto;
+        .sub-header {
+            display: flex;
+            flex-direction: row;
+            align-items: center; 
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            .logo {
+                background-image: url("../../src/assets/food-bowl.png");
+                background-size: cover;
+                mix-blend-mode: multiply; // removes checkered backgound on png
+                background-color: $toolbar;
+                width: 60px;
+                height: 60px;
+                margin-right: 16px;
+                transform: translateY(-8px);
+                cursor: pointer;
+            }
+
+            h1 {
+                color: $light-grey;
+                font-family: 'Montserrat Subrayada', sans-serif;
+                font-size: 3.5rem;
+                margin: 0;
+                margin-right: 16px;
+            }
         }
     }
     
@@ -57,9 +79,34 @@
         }
 
     }
+
+    /*******************************
+  
+        MOBILE VIEW STYLES
+  
+    ********************************/
+    
+    @media only screen and (max-width: 767px) and (orientation: portrait) {
+    
+
+    }
+    
+    @media only screen and (max-width: 767px) and (orientation: landscape) {
+    
+
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    
+
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    
+
+    }
+    
+
 }
 
-i {
-    color: $light-grey;
-    font-size: 48px;
-}
+
