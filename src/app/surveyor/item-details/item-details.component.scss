@@ -1,12 +1,21 @@
 @import '../../../styles.scss';
 
 .details-wrapper {
-  width: 420px;
-  height: 350px;
+  display: flex;
+  align-items: center;  
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
 
   mat-card {
-    width: 100%;
-    height: 100%;
+    width: 500px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-width: thick;
+    border: outset;
 
     mat-card-header {
       display: flex;
@@ -34,21 +43,34 @@
       align-items: center;
 
       .descript-container {
-        height: 64px;
+        font-size: .8rem;
         padding-left: 16px;
-        padding-right: 16px
+        padding-right: 16px;
+
+        .descript {
+          padding-bottom: 8px;
+          border-bottom-style: dashed;
+          border-color: slategrey;
+        }
       }
       .action-container {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         width: 100%;
         margin-top: 32px;
 
+        h3 {
+          margin-left: 32px;
+          font-weight: bold;
+          line-height: 36px;
+        }
         .button-container {
-          button {
+          button {    
             background-color: $blue-grey;
             color: $light-grey;
             margin-right: 8px;
+            font-size: 1rem;
+          
             &:hover {
                 background-color: $browse-color;
             }
@@ -57,4 +79,46 @@
       }
     }
   }
+
+
+     /*******************************
+    
+      MOBILE VIEW STYLES
+    
+    ********************************/
+
+    @media only screen and (max-width: 767px) and (orientation: portrait) {
+      mat-card {
+        width: 90%;
+        
+        mat-card-title {
+          font-size: 1.2rem;
+        }
+        mat-card-content {
+          .descript-container {
+            .descript {
+              max-height: 90px;
+              overflow-y: scroll;
+            }
+          }
+        }
+      }
+
+  
+    }
+    
+    @media only screen and (max-width: 767px) and (orientation: landscape) {
+    
+  
+    }
+  
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    
+  
+    }
+  
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    
+  
+    }
 }

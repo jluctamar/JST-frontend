@@ -23,12 +23,15 @@
             .logo {
                 background-image: url("../../src/assets/food-bowl.png");
                 background-size: cover;
-                mix-blend-mode: multiply; // removes checkered backgound on png
                 background-color: $toolbar;
+                //mix-blend-mode: multiply; // removes checkered backgound on png
+                filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(
+                    93deg) brightness(103%) contrast(103%); // tunrs the bowl white (matching the menu)
+                border-radius: 36px;
                 width: 60px;
                 height: 60px;
                 margin-right: 16px;
-                transform: translateY(-8px);
+                transform: translateY(-2px);
                 cursor: pointer;
             }
 
