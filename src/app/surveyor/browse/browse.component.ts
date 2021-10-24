@@ -13,11 +13,11 @@ export class BrowseComponent implements OnInit {
   browsingImg: DishImage[];
   selectedDish: DishImage;
   showDetails = false;
-
+  numCol = '';
   constructor() { }
 
   ngOnInit(): void {
-
+    this.numCol = (window.innerWidth || document.documentElement.clientWidth) <= 480 ? '2' : '3'
     // TODO:fetch this data from a databese:
     this.browsingImg = [
       {
@@ -116,7 +116,6 @@ export class BrowseComponent implements OnInit {
 
 
   onShowDetails(selected: DishImage): void {
-    console.log('inside show details method, selected: ', selected.title);
     this.selectedDish = selected;
     this.showDetails = true;
   }
@@ -125,4 +124,7 @@ export class BrowseComponent implements OnInit {
     this.selectedDish = null;
   }
 
+  onResize(event): void {
+    this.numCol = (window.innerWidth || document.documentElement.clientWidth) <= 480 ? '2' : '3'
+  }
 }

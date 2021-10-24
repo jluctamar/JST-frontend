@@ -1,37 +1,37 @@
 <div class="content-container" >
   <mat-toolbar class="main-header" >
-      <button class="menu-btn" mat-icon-button matTooltip="Menu (ESC)" matTooltipPosition="right" (click)="onSideNavToggle()">
+      <button class="menu-btn" mat-icon-button matTooltip="Menu (ESC)" matTooltipPosition="right" (click)="onSideNavToggle()" [disableRipple]="true">
           <mat-icon class="material-icons">menu</mat-icon>
       </button>
       <div class="sub-header">
-        <div class="logo"></div>
+        <div class="logo" (click)="onGoToHome()"></div>
         <h1>J's Special Trays</h1>
       </div>
   </mat-toolbar>
 
   <mat-sidenav-container id="nav-container">
       <mat-sidenav id="sidenav" #sidenav opened="false" mode="side">
-          <button mat-button id="home" matTooltip="Home" matTooltipPosition="right" routerLink="">
-              <mat-icon class="material-icons">home</mat-icon>
-          </button>
-          <a mat-button id="profile" matTooltip="Profile" matTooltipPosition="right" routerLink="/user-management/profile" *ngIf="loggedInUser">
+          <a mat-button id="home" matTooltip="Home" matTooltipPosition="right" (click)="onNavigate('/')">
+            <div id="home-nav" class="nav-item">Home</div>
+          </a>
+          <a mat-button id="profile" matTooltip="Profile" matTooltipPosition="right" (click)="onNavigate('/user-management/profile')" *ngIf="loggedInUser">
               <div id="profile-nav" class="nav-item">Profile</div>
           </a>
           <br *ngIf="loggedInUser">
-          <a mat-button id="login" matTooltip="Login" matTooltipPosition="right" routerLink="/auth/login" *ngIf="!loggedInUser">
+          <a mat-button id="login" matTooltip="Login" matTooltipPosition="right" (click)="onNavigate('/auth/login')" *ngIf="!loggedInUser">
               <div id="login-nav" class="nav-item">Login</div>
           </a>
           <br *ngIf="!loggedInUser"  >
-          <a mat-button id="register" matTooltip="Register" matTooltipPosition="right" routerLink="/auth/register" *ngIf="!loggedInUser">
+          <a mat-button id="register" matTooltip="Register" matTooltipPosition="right" (click)="onNavigate('/auth/register')" *ngIf="!loggedInUser">
               <div id="register-nav" class="nav-item">Register</div>
           </a>
           <br *ngIf="!loggedInUser">
-          <a mat-button id="cart" matTooltip="Cart" matTooltipPosition="right" routerLink="/profile/cart" *ngIf="loggedInUser">
+          <a mat-button id="cart" matTooltip="Cart" matTooltipPosition="right" (click)="onNavigate('/profile/cart')" *ngIf="loggedInUser">
               <div id="cart-nav" class="nav-item">Cart</div>
           </a>
        
           <br *ngIf="loggedInUser">
-          <a mat-button id="logout" matTooltip="Logout" matTooltipPosition="right" routerLink="" (click)="onLogout()" *ngIf="loggedInUser">
+          <a mat-button id="logout" matTooltip="Logout" matTooltipPosition="right" (click)="onLogout()" *ngIf="loggedInUser">
               <div id="logout-nav" class="nav-item">Logout</div>
           </a>
           <br>

@@ -1,10 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Store } from '@ngrx/store';
-import { filter } from 'rxjs/operators';
 import { AppState } from './app-state';
 import { selectIsLoggedIn } from './store/selectors/auth.selectors';
 import { logout } from 'src/app/store/actions/authenticator.actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +15,12 @@ export class AppComponent {
   @ViewChild('sidenav') sidenav: MatSidenav;
   title = 'Jays-special-trays';
   loggedInUser = false;
+  
+  // gets the screen size
+  // limitation: if screen size changes, variable only updates after page refresh
+  isSmallScreen =  (window.innerWidth || document.documentElement.clientWidth) <= 767;
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private router: Router, private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.store
@@ -32,5 +36,20 @@ export class AppComponent {
 
   onSideNavToggle(): void {
     this.sidenav.toggle();
+  }
+
+  onGoToHome(): void {
+    this.router.navigate(['/']);
+  }
+
+  onNavigate( route: string): void {
+
+    // the menu needs to close after every selection
+    if(this.isSmallScreen) { // TODO: possibly store the screen size in store   
+      this.onSideNavToggle();
+    }
+
+    this.router.navigate([route]);
+    
   }
 }

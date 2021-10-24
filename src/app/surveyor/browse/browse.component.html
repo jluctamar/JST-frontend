@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <mat-grid-list cols="3" rowHeight="1:1">
+  <mat-grid-list [cols]="numCol" rowHeight="1:1" gutterSize=".5em" (window:resize)="onResize($event)">
     <mat-grid-tile *ngFor="let item of browsingImg" class="tile" (click)="onShowDetails(item)">
       <div class="img-container">
         <img [src]="item.imgSrc" [alt]="item.title" />
