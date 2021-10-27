@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { DishImage } from 'src/app/interfaces/surveyor-interfaces';
 import { simpleInOutAnimation } from 'src/app/shared/animations';
 
@@ -9,7 +9,6 @@ import { simpleInOutAnimation } from 'src/app/shared/animations';
   animations: [simpleInOutAnimation]
 })
 export class BrowseComponent implements OnInit {
-
   browsingImg: DishImage[];
   selectedDish: DishImage;
   showDetails = false;
@@ -17,7 +16,7 @@ export class BrowseComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.numCol = (window.innerWidth || document.documentElement.clientWidth) <= 480 ? '2' : '3'
+    this.numCol = (window.innerWidth || document.documentElement.clientWidth) <= 767 ? '2' : '3'
     // TODO:fetch this data from a databese:
     this.browsingImg = [
       {
@@ -118,6 +117,7 @@ export class BrowseComponent implements OnInit {
   onShowDetails(selected: DishImage): void {
     this.selectedDish = selected;
     this.showDetails = true;
+    // TODO: emit event to close the sidnav
   }
   onCloseDetails(): void {
     this.showDetails = false;
@@ -125,6 +125,6 @@ export class BrowseComponent implements OnInit {
   }
 
   onResize(event): void {
-    this.numCol = (window.innerWidth || document.documentElement.clientWidth) <= 480 ? '2' : '3'
+    this.numCol = (window.innerWidth || document.documentElement.clientWidth) <= 767 ? '2' : '3'
   }
 }

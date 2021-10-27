@@ -2,7 +2,10 @@
 
 .wrapper {
   width: 100%;
-  height: 100%;
+  height: fit-content;
+  box-shadow: rgb(204 219 232) 3px 3px 6px 0px inset, rgb(255 255 255 / 50%) -3px -3px 6px 1px inset;
+  padding-left: 8px;
+  padding-right: 8px;
   .tile {
     display: flex;
     flex-flow: column;
@@ -81,7 +84,12 @@
   }
   
   @media only screen and (max-width: 767px) and (orientation: landscape) {
-  
+    .tile {
+      
+      h3{
+        display:none;
+      }
+    }
 
   }
 

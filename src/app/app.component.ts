@@ -5,6 +5,7 @@ import { AppState } from './app-state';
 import { selectIsLoggedIn } from './store/selectors/auth.selectors';
 import { logout } from 'src/app/store/actions/authenticator.actions';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ export class AppComponent {
   @ViewChild('sidenav') sidenav: MatSidenav;
   title = 'Jays-special-trays';
   loggedInUser = false;
-  
+  subscriptions: Subscription[] = [];
   // gets the screen size
   // limitation: if screen size changes, variable only updates after page refresh
   isSmallScreen =  (window.innerWidth || document.documentElement.clientWidth) <= 767;
@@ -23,11 +24,11 @@ export class AppComponent {
   constructor(private router: Router, private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.store
+    this.subscriptions.push(this.store
       .select(selectIsLoggedIn)
       .subscribe((state) => {
         this.loggedInUser = state;
-      });
+      }));
   }
 
   onLogout(): void {
@@ -50,6 +51,13 @@ export class AppComponent {
     }
 
     this.router.navigate([route]);
-    
+  }
+
+  onNavEvent(event):void {
+    this.sidenav.close();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach( sub => sub.unsubscribe());
   }
 }
