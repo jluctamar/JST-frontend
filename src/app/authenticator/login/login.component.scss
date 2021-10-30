@@ -7,10 +7,11 @@
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 100%;
 
     mat-card {
         margin: 0 auto;
-        height: 280px;
+        height: fit-content;
         width: 315px;
 
         mat-card-header {
@@ -77,5 +78,54 @@
 
             }
         }
+    }
+
+    /*******************************
+  
+        MOBILE VIEW STYLES
+  
+    ********************************/
+
+    @media only screen and (max-width: 767px) and (orientation: portrait) {
+
+        mat-card {
+            width: 90%;
+
+            mat-card-content {
+
+                .action-container {
+                    align-items: center;
+                }
+            }
+            
+        }
+    }
+
+    @media only screen and (max-width: 767px) and (orientation: landscape) {
+        
+        mat-card {
+            width: 90%;
+            height: 90%;
+
+            mat-card-content {
+
+                .action-container {
+                    flex-direction: row;
+                    justify-content: space-around;
+                    align-items: center;
+                }
+            }
+            
+        }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    
+
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    
+
     }
 }

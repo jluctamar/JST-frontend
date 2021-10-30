@@ -9,7 +9,7 @@
         background: $toolbar;
         z-index: 2; // Aids in creating an overlapping effect with the box-shaddow below
         box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-    
+
         .menu-btn {
             background: $toolbar;
             color: white;
@@ -47,7 +47,7 @@
         }
     }
     
-    mat-sidenav-container {
+    ::ng-deep mat-sidenav-container {
         flex: 1;
 
         ::ng-deep mat-sidenav {

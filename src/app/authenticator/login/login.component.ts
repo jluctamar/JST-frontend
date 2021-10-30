@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
-    console.log('inside login function');
     this.store.dispatch(login({username: this.user.username, password: this.user.password}))
     this.user =  {
       firstName: '',
