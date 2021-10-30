@@ -71,7 +71,7 @@
                 .nav-item {
                     color: $light-grey;
                     font-family: 'Montserrat', sans-serif;
-                    font-size: 160%;
+                    font-size: 1.5rem;
                     font-weight: bold;
                     margin: 0 auto;
                 }
@@ -107,6 +107,22 @@
         }
 
         mat-sidenav-container {
+
+            mat-sidenav {
+                    
+                a {
+                    .nav-item {
+                        font-size: 2.5rem !important;
+                    }
+                    
+                    &#close {
+                        // position the close button at the bottom of portrait device menu
+                        position: absolute ;
+                        bottom: 0px;
+                        left: 0;
+                    }
+                }
+            }
     
             ::ng-deep mat-sidenav {
                 width: 100%;
