@@ -9,12 +9,11 @@
   height: 100%;
 
   mat-card {
-    height: 335px;
-    width: 435px;
+    height: fit-content;
+    width: 550px;
 
     mat-card-header {
       justify-content: center;
-      margin-bottom: 12px;
 
       mat-card-title {
         color: $dark-grey;
@@ -29,7 +28,7 @@
 
       .form-container {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         flex-flow: wrap;
         padding-left: 8px;
         padding-right: 8px;
@@ -38,11 +37,15 @@
           font-family: $font;
           font-size: 1rem;
         }
+
+        mat-form-field {
+          margin-right: 32px; 
+        }
       }
 
       .action-container {
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         padding-right: 8px;
         button {
           background-color: $blue-grey;
@@ -73,4 +76,83 @@
       }
     }
   }
+
+
+    /*******************************
+  
+      MOBILE VIEW STYLES
+  
+    ********************************/
+
+    @media only screen and (max-width: 767px) and (orientation: portrait) {
+
+      mat-card {
+        width: 80%;
+          mat-card-content {
+            .form-container {
+              justify-content: center;
+              ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+                background-color: #e5e6e6ed;
+              }
+
+              ::ng-deep .mat-form-field-infix {
+                font-weight: bold;
+              }
+            }
+            .action-container {
+              justify-content: center;
+            }
+          } 
+      }
+  }
+
+  @media only screen and (max-width: 767px) and (orientation: landscape) {
+      
+      mat-card {
+        width: 90%;
+        height: 90%;
+        overflow: scroll;
+          mat-card-content {
+            .form-container {
+              justify-content: center;
+              mat-form-field {
+                margin-right: 16px; 
+                margin-left: 8px;
+              }
+              ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+                height: 35px;
+                padding: 0.3em;
+                background: #e5e6e6ed;
+              }
+
+              ::ng-deep .mat-form-field-infix {
+                font-weight: bold;
+              }
+              ::ng-deep .mat-form-field-wrapper {
+                padding-bottom: 0.5em;
+              }
+              ::ng-deep .mat-form-field-underline {
+                bottom: unset;
+              }
+            }
+
+            .action-container {
+              margin-top: 8px;
+              justify-content: center;
+            }
+          }
+          
+      }
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  
+
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+
+  }
+
 }

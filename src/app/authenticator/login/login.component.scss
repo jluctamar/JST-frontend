@@ -12,7 +12,7 @@
     mat-card {
         margin: 0 auto;
         height: fit-content;
-        width: 315px;
+        width: 550px;
 
         mat-card-header {
             justify-content: center;
@@ -45,7 +45,7 @@
                 margin-top: 8px;
                 display: flex;
                 flex-direction: column;
-                align-items: flex-end;
+                align-items: center;
 
                 button {
                     background-color: $blue-grey;
@@ -94,7 +94,7 @@
             mat-card-content {
 
                 .action-container {
-                    align-items: center;
+                   // align-items: center;
                 }
             }
             
@@ -106,13 +106,13 @@
         mat-card {
             width: 90%;
             height: 90%;
-
+            overflow: auto;
             mat-card-content {
 
                 .action-container {
                     flex-direction: row;
                     justify-content: space-around;
-                    align-items: center;
+                    //align-items: center;
                 }
             }
             
