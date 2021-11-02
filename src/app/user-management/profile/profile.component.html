@@ -8,6 +8,11 @@
     </mat-card-header>
     <mat-card-content>
         <div class="user-details">
+            <div class="labels">
+                <h4 class="username-label">Username:</h4>
+                <h4 class="email-label">Email:</h4>
+                <h4 class="password-label">Password:</h4>
+            </div>
             <div class="static-details" *ngIf="!isUpdatingUser">
                 <h4 class="username">{{currUser.username}}</h4>
                 <h4 class="email">{{currUser.email}}</h4>
