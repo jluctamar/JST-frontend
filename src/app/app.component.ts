@@ -57,6 +57,10 @@ export class AppComponent {
     this.sidenav.close();
   }
 
+  onResize(event): void {
+    this.isSmallScreen =  (window.innerWidth || document.documentElement.clientWidth) <= 767;
+  }
+
   ngOnDestroy(): void {
     this.subscriptions.forEach( sub => sub.unsubscribe());
   }

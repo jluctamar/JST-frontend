@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatRadioModule } from '@angular/material/radio';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
@@ -14,6 +15,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -33,6 +35,8 @@ import { AppComponent } from './app.component';
     MatTooltipModule,
     MatCheckboxModule,
     MatIconModule,
+    MatRadioModule,
+    FormsModule,
     StoreModule.forRoot({ }),
     EffectsModule.forRoot([]),
    !environment.production ? StoreDevtoolsModule.instrument() : [],

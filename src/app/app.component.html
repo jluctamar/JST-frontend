@@ -1,4 +1,4 @@
-<div class="content-container" >
+<div class="content-container" (window:resize)="onResize($event)" >
   <mat-toolbar class="main-header" >
       <button class="menu-btn" mat-icon-button matTooltip="Menu (ESC)" matTooltipPosition="right" (click)="onSideNavToggle()" [disableRipple]="true">
           <mat-icon class="material-icons">menu</mat-icon>

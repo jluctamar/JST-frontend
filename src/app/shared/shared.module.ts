@@ -6,6 +6,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,12 +23,15 @@ import {MatInputModule} from '@angular/material/input';
   ],
   exports: [
     CommonModule,
+    FormsModule,
     MatButtonModule,
     MatCheckboxModule,
     MatGridListModule,
     MatFormFieldModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    MatRadioModule,
+
   ]
 })
 export class SharedModule { }

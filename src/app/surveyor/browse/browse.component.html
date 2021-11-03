@@ -1,20 +1,16 @@
 <div class="wrapper">
-  <mat-grid-list [cols]="numCol" rowHeight="1:1" gutterSize=".5em" (window:resize)="onResize($event)">
-    <mat-grid-tile *ngFor="let item of browsingImg" class="tile" (click)="onShowDetails(item)">
-      <div class="img-container">
-        <img [src]="item.imgSrc" [alt]="item.title" />
-      </div>
-      <br />
-      <div class="name">
-        <h3>{{ item.title }}</h3>
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <div class="details-overlay" *ngIf="showDetails">
-    <app-item-details
-      *ngIf="showDetails"
-      @simpleInOutAnimation
-      [dish]="selectedDish"
-      (closeDetails)="onCloseDetails()"></app-item-details>
-  </div>
+  <mat-radio-group name="menuDisplay" ngModel #menuDisplay="ngModel" (ngModelChange)="onSelectionChange($event)">
+    <mat-label>
+      <mat-radio-button checked class="grid-radio" value="grid">
+        <img width="40" src="../../../assets/grid-icon.png">
+      </mat-radio-button>
+      </mat-label>
+      <mat-label>
+        <mat-radio-button class="list-radio" value="list">
+          <img width="40" src="../../../assets/list-icon.png">
+        </mat-radio-button>
+      </mat-label>
+  </mat-radio-group>
+  <app-grid-overview *ngIf="viewSelection=='grid'" [browsingImgs]="browsingImg"></app-grid-overview>
+  <app-list-overview *ngIf="viewSelection=='list'"></app-list-overview>
 </div>

@@ -1,0 +1,101 @@
+@import "../../../styles.scss";
+
+.wrapper {
+
+    .tile {
+        display: flex;
+        flex-flow: column;
+        border: 1px solid black;
+    
+        .name {
+          position: absolute;
+          top: 32px;
+          right: 0;
+          left: 0;
+          margin: 1% auto;
+          text-align: center;
+          font-weight: bold;
+    
+          h3 {
+            font-family: $font;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color:  $browse-color;
+            text-shadow: $text-shadow;
+          }
+        }
+    
+        .img-container {
+          height: 100%;
+          flex: 1;
+          display: flex;
+          justify-content: center;
+    
+          img {
+            object-fit: contain;
+            transition-duration: 0.3s;
+            transition-property: transform;
+            &:hover {
+              transform: scale(1.1);
+              box-shadow: inset 10px 10px 50px rgb(243, 35, 35);
+            }
+          }
+        }
+      }
+    
+    
+      .details-overlay {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        background-color: rgba(37, 45, 80, .5);
+      }
+    
+    
+    
+       /*******************************
+        
+          MOBILE VIEW STYLES
+        
+        ********************************/
+    
+      @media only screen and (max-width: 767px) and (orientation: portrait) {
+    
+        .tile {
+          
+          h3{
+            display:none;
+          }
+        }
+    
+      }
+      
+      @media only screen and (max-width: 767px) and (orientation: landscape) {
+        .tile {
+          
+          h3{
+            display:none;
+          }
+        }
+    
+      }
+    
+      @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+      
+    
+      }
+    
+      @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+      
+    
+      }
+}
