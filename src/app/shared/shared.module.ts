@@ -7,6 +7,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
+import {MatList, MatListModule} from '@angular/material/list'; 
 import { FormsModule } from '@angular/forms';
 
 
@@ -19,7 +20,9 @@ import { FormsModule } from '@angular/forms';
     MatGridListModule,
     MatFormFieldModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    MatRadioModule,
+    MatListModule
   ],
   exports: [
     CommonModule,
@@ -31,6 +34,7 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     MatInputModule,
     MatRadioModule,
+    MatListModule
 
   ]
 })

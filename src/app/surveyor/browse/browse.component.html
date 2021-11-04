@@ -12,5 +12,5 @@
       </mat-label>
   </mat-radio-group>
   <app-grid-overview *ngIf="viewSelection=='grid'" [browsingImgs]="browsingImg"></app-grid-overview>
-  <app-list-overview *ngIf="viewSelection=='list'"></app-list-overview>
+  <app-list-overview *ngIf="viewSelection=='list'" [browsingImgs]="browsingImg"></app-list-overview>
 </div>

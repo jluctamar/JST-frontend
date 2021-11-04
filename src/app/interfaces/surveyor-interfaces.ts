@@ -3,4 +3,5 @@ export interface DishImage {
     imgSrc: string;
     description?: string;
     price: string;
+    mealType?: string;
 }

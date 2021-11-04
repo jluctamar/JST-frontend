@@ -1,1 +1,25 @@
-<p>list-overview works!</p>
+<div class="wrapper">
+    <div class="img-banner">
+        <img [src]="selectedDish?.imgSrc" [alt]="" />
+    </div>
+    <div class="content-container">
+        <div class="categories">
+            <mat-selection-list [multiple]="false" [(ngModel)]="selectedMealType" (selectionChange)="onSelectType()">
+                <mat-list-option *ngFor="let type of typesOfMeals" [value]="type">
+                  {{type}}
+                  <mat-divider></mat-divider>
+                </mat-list-option>
+              </mat-selection-list>
+        </div>
+        <div class="entree-list">
+            <mat-list  >
+                <mat-list-item *ngFor="let dish of selectedMeals" [value]="dish" (click)="onSelectDish(dish)">
+                    <img [src]="dish?.imgSrc" [alt]="" />
+                    <div mat-line>{{dish.title}}</div>
+                    <div mat-line>${{dish.price}}</div>
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+            </mat-list>
+        </div>
+    </div>
+</div>

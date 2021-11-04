@@ -10,7 +10,7 @@ import { simpleInOutAnimation } from 'src/app/shared/animations';
   animations: [simpleInOutAnimation]
 })
 export class BrowseComponent implements OnInit {
-  viewSelection = 'grid';
+  viewSelection = 'list';
   browsingImg: DishImage[];
 
   constructor() { }
@@ -24,7 +24,8 @@ export class BrowseComponent implements OnInit {
         description: `Lorem ipsum dolor sit amet, 
                        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         Condimentum mattis pellentesque id nibh tortor id aliquet lectus.`,
-        price: "8.00"
+        price: "8.00",
+        mealType: "Lunch"
       },
       {
         title: 'Bannna Peze ak Griot',
@@ -32,28 +33,32 @@ export class BrowseComponent implements OnInit {
         description: ` Vitae justo eget magna fermentum. 
                         Erat nam at lectus urna. Mattis nunc sed blandit libero volutpat sed cras ornare arcu. 
                          Etiam sit amet nisl purus.`,
-        price: "10.00"
+        price: "10.00",
+        mealType: "Lunch"
       },
       {
         title: 'Diri Kole ak Pwa ak Griot',
         imgSrc: '../../assets/dish3.jpg',
         description: `Condimentum vitae sapien pellentesque habitant morbi tristique senectus et netus. 
                         Sed velit dignissim sodales ut eu sem integer vitae justo.  `,
-        price: "10.00"
+        price: "10.00",
+        mealType: "Breakfast"
       },
       {
         title: 'Diri Blan ak Poul',
         imgSrc: '../../assets/dish4.jpg',
         description: `Est placerat in egestas erat imperdiet sed euismod nisi porta. 
                        Etiam non quam lacus suspendisse faucibus interdum posuere lorem. `,
-        price: "10.00"
+        price: "10.00",
+        mealType: "Breakfast"
       },
       {
         title: 'Pate',
         imgSrc: '../../assets/dish5.jpg',
         description: `Tellus integer feugiat scelerisque varius morbi enim nunc. 
                         Aliquam nulla facilisi cras fermentum odio eu feugiat pretium.  `,
-        price: "6.00"
+        price: "6.00",
+        mealType: "Lunch"
       },
       {
         title: 'Griot',
@@ -61,7 +66,8 @@ export class BrowseComponent implements OnInit {
         description: `Erat pellentesque adipiscing commodo elit at imperdiet.
                         Enim tortor at auctor urna nunc id cursus. 
                           Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat.  `,
-        price: "10.00"
+        price: "10.00",
+        mealType: "Breakfast"
       },
       {
         title: 'Diri, Poul, Piklese',
@@ -69,7 +75,8 @@ export class BrowseComponent implements OnInit {
         description: `Pretium quam vulputate dignissim suspendisse in est ante in nibh. 
                         Consequat semper viverra nam libero justo. Vulputate mi sit amet mauris. 
                           At elementum eu facilisis sed odio morbi quis. `,
-        price: "10.00"
+        price: "10.00",
+        mealType: "Breakfast"
       },
       {
         title: 'Poul ak Bannan Peze ak Salad',
@@ -77,7 +84,8 @@ export class BrowseComponent implements OnInit {
         description: `Feugiat vivamus at augue eget arcu. Platea dictumst quisque sagittis purus sit amet volutpat. 
                         Quis viverra nibh cras pulvinar mattis. 
                          Iaculis nunc sed augue lacus viverra vitae congue.`,
-        price: "8.00"
+        price: "8.00",
+        mealType: "Dinner"
       },
       {
         title: 'All-in-One Special',
@@ -85,7 +93,8 @@ export class BrowseComponent implements OnInit {
         description: `Dolor sed viverra ipsum nunc. 
                         Maecenas ultricies mi eget mauris pharetra et ultrices. 
                           Sed arcu non odio euismod lacinia at. `,
-        price: "12.00"
+        price: "12.00",
+        mealType: "Lunch"
       },
       {
         title: 'Dish 10',
@@ -93,21 +102,24 @@ export class BrowseComponent implements OnInit {
         description: `Ut tristique et egestas quis ipsum suspendisse ultrices. 
                         Habitant morbi tristique senectus et netus et malesuada fames ac. 
                           Ultrices gravida dictum fusce ut placerat.  `,
-        price: "10.00"
+        price: "10.00",
+        mealType: "Breakfast"
       },
       {
         title: 'Sos Poul',
         imgSrc: '../../assets/dish11.jpg',
         description: `Eget arcu dictum varius duis at consectetur lorem. 
                         Nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque purus.`,
-        price: "10.00"
+        price: "10.00",
+        mealType: "Dinner"
       },
       {
         title: 'Diri Sos Pwa ak Legume',
         imgSrc: '../../assets/dish12.jpg',
         description: `Lobortis scelerisque fermentum dui faucibus in ornare quam. 
                         Mauris ultrices eros in cursus. Sed faucibus turpis in eu.`,
-        price: "10.00"
+        price: "10.00",
+        mealType: "Lunch"
       },
     ];
   }
