@@ -1,12 +1,12 @@
 <div class="wrapper">
   <mat-radio-group name="menuDisplay" ngModel #menuDisplay="ngModel" (ngModelChange)="onSelectionChange($event)">
     <mat-label>
-      <mat-radio-button checked class="grid-radio" value="grid">
-        <img width="40" src="../../../assets/grid-icon.png">
+      <mat-radio-button checked class="grid-radio" value="grid" >
+        <img width="40" src="../../../assets/grid-icon.png" matTooltip="Grid View">
       </mat-radio-button>
       </mat-label>
       <mat-label>
-        <mat-radio-button class="list-radio" value="list">
+        <mat-radio-button class="list-radio" value="list" matTooltip="List View">
           <img width="40" src="../../../assets/list-icon.png">
         </mat-radio-button>
       </mat-label>
