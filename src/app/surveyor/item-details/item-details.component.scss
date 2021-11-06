@@ -76,6 +76,14 @@
             &:hover {
               background-color: $browse-color;
             }
+
+          }
+          
+          .mat-flat-button.mat-button-disabled.mat-button-disabled {
+            background-color: gray;
+            &:hover {
+              background-color: none;
+            }
           }
         }
       }

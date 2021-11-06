@@ -30,8 +30,10 @@
     img {
       filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(
                     93deg) brightness(103%) contrast(103%); // tunrs the bowl white (matching the menu)
-                
-    }
+      }
+    .list-icon {
+      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(130%) contrast(103%);
+    }          
   }
 
 }

@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { AppState } from 'src/app/app-state';
 import { DishImage } from 'src/app/interfaces/surveyor-interfaces';
+import { selectIsLoggedIn } from 'src/app/store/selectors/auth.selectors';
 
 @Component({
   selector: 'app-item-details',
@@ -11,10 +15,18 @@ export class ItemDetailsComponent implements OnInit {
   @Input() dish: DishImage;
   @Output() closeDetails = new EventEmitter();
 
+  isUserLoggedIn = false;
+  subscriptions: Subscription[] = [];
 
-  constructor() { }
+
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
+    this.subscriptions.push(this.store
+      .select(selectIsLoggedIn)
+      .subscribe((state) => {
+        this.isUserLoggedIn = state;
+      }));
   }
 
 
@@ -22,4 +34,7 @@ export class ItemDetailsComponent implements OnInit {
     this.closeDetails.emit();
   }
 
+  ngOnDestroy(): void {
+    this.subscriptions.forEach( sub => sub.unsubscribe());
+  }
 }
