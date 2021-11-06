@@ -1,11 +1,11 @@
 <div class="wrapper">
     <div class="img-banner">
         <img [src]="selectedDish?.imgSrc" [alt]="" />
-        <button mat-flat-button type="button" class="order-btn">Order</button>
+        <button mat-flat-button type="button" class="order-btn" (click)="onOrderDish()">Order</button>
     </div>
     <div class="content-container">
         <div class="categories">
-            <mat-selection-list [multiple]="false" [(ngModel)]="selectedMealType" (selectionChange)="onSelectType()">
+            <mat-selection-list  [multiple]="false" [(ngModel)]="selectedMealType" (selectionChange)="onSelectType()">
                 <mat-list-option *ngFor="let type of typesOfMeals" [value]="type">
                   {{type}}
                   <mat-divider></mat-divider>
@@ -23,4 +23,11 @@
             </mat-list>
         </div>
     </div>
+    <div class="details-overlay" *ngIf="showDetails">
+        <app-item-details
+          *ngIf="showDetails"
+          @simpleInOutAnimation
+          [dish]="selectedDish"
+          (closeDetails)="onCloseDetails()"></app-item-details>
+      </div>
 </div>
