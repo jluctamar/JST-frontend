@@ -11,7 +11,7 @@ import { simpleInOutAnimation } from 'src/app/shared/animations';
 export class ListOverviewComponent implements OnInit {
   @Input() browsingImgs: DishImage[];
 
-  typesOfMeals = ["Breakfast", "Lunch","Dinner"]
+  typesOfMeals = ["Breakfast", "Lunch","Dinner", "Desserts"]
   selectedMealType;
   selectedMeals: DishImage[] = [];
   selectedDish: DishImage;
