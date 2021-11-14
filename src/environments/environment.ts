@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // url: "http://localhost:8081/JaysSpecialTraysBackend/"
-  url:''
+  url:'www.google.com'
 };
 
 /*
