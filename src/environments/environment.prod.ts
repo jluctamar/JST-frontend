@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  url:'www.google.com'
+  url: 'www.google.com' // Temporary
 };
