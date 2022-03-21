@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MatRadioButton } from '@angular/material/radio';
+import { Component, OnInit } from '@angular/core';
 import { DishImage } from 'src/app/interfaces/surveyor-interfaces';
 import { simpleInOutAnimation } from 'src/app/shared/animations';
 import { environment } from 'src/environments/environment';
@@ -160,7 +159,7 @@ export class BrowseComponent implements OnInit {
       },
       {
         title: 'Bouyon',
-        imgSrc: environment.production ? 'https://drive.google.com/uc?id=1bAf5U-4vVfZm4v168voDyR_myeLnXI47' : '/assets/dish17.jpg',
+        imgSrc: environment.production ? 'https://drive.google.com/uc?id=1ufSqAoR_NjkAXbRypPzYSS0nDjpUw92B' : '/assets/dish17.jpg',
         description: `Est placerat in egestas erat imperdiet sed euismod nisi porta. 
                        Etiam non quam lacus suspendisse faucibus interdum posuere lorem. `,
         price: "14.00",

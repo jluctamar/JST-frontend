@@ -28,7 +28,8 @@
             color: $light-grey;
             margin-right: 8px;
             font-size: 1rem;
-
+            box-shadow: inset 0px 0px 5px 0px $light-grey;
+            transition: 0.2s;
             &:hover {
                 background-color: $browse-color;
             }
@@ -140,12 +141,12 @@
 
     @media only screen and (max-width: 767px) and (orientation: portrait) {
         .img-banner {
-            flex-basis: 70%; 
-            height: 70%;
+            flex-basis: 55%; 
+            height: 55%;
         }
         .content-container {
-            flex-basis: 30%; 
-            height: 30%;
+            flex-basis: 45%; 
+            height: 45%;
             .categories {
                 align-items: center;
                 display: flex;

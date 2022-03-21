@@ -22,6 +22,7 @@
     background-color: $toolbar;
     z-index: 1;
     border-bottom-left-radius: 8px;
+    box-shadow: inset -1px 0px 7px 0px #d4e9f3;
 
     mat-radio-button {
       margin-right:8px;

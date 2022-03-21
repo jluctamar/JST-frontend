@@ -52,6 +52,11 @@
 
         ::ng-deep mat-sidenav {
             width: 175px;
+            border-right-style: none;
+            .mat-drawer-inner-container {
+                box-shadow: inset -2px -2px 10px 0px azure;
+            }
+            
         }
     
         mat-sidenav {
