@@ -5,7 +5,7 @@
     .tile {
         display: flex;
         flex-flow: column;
-        border: 1px solid black;
+        border: 2px solid $browse-color;
     
         .name {
           position: absolute;
@@ -38,7 +38,6 @@
             transition-property: transform;
             &:hover {
               transform: scale(1.1);
-              box-shadow: inset 10px 10px 50px rgb(243, 35, 35);
             }
           }
         }
