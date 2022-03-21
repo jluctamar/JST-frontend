@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
   animations: [simpleInOutAnimation]
 })
 export class BrowseComponent implements OnInit {
-  viewSelection = 'list';
+  viewSelection = 'grid';
   browsingImg: DishImage[];
 
   constructor() { }
