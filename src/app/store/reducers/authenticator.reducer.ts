@@ -28,7 +28,7 @@ export const authReducer = createReducer(initialState,
     return {
         ...state,
         isLoggedIn: false,
-        user: action.user,
+        user: null,
         respMsg: "Unauthorized. User Not Found."
     }
   }),

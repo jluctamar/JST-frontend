@@ -49,7 +49,7 @@ export class AuthEffects {
       concatMap((action) =>
         this.authService.login(action.username, action.password).pipe(
           map((user) => loginSuccess({ user })),
-          catchError((error) => of(loginFailure(error.user)))
+          catchError((error) => of(loginFailure(error)))
         )
       )
     );

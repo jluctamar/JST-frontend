@@ -10,10 +10,12 @@ import { MatRadioModule } from '@angular/material/radio';
 import {MatList, MatListModule} from '@angular/material/list'; 
 import {MatTooltipModule} from '@angular/material/tooltip'; 
 import { FormsModule } from '@angular/forms';
+import { NotificationsComponent } from './notifications/notifications.component';
+
 
 
 @NgModule({
-  declarations: [],
+  declarations: [NotificationsComponent],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -27,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     MatTooltipModule
   ],
   exports: [
+    NotificationsComponent,
     CommonModule,
     FormsModule,
     MatButtonModule,
