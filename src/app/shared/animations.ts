@@ -26,3 +26,21 @@ export const simpleInOutAnimation = [
         ]
       )
 ]
+
+export const SlideDownUpAnimation = [
+  trigger('slideDownUp', [
+    transition(':enter', [
+      style({ transform: 'translateY(0%)', opacity: '0' }),
+      animate(
+        '1000ms ease-out',
+        style({ transform: 'translateY(100%)', opacity: '1' })
+      ),
+    ]),
+    transition(':leave', [
+      animate(
+        '800ms ease-out',
+        style({ transform: 'translateY(0%)', opacity: '0' })
+      ),
+    ]),
+  ]),
+];
