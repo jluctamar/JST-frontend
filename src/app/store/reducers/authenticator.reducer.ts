@@ -35,13 +35,13 @@ export const authReducer = createReducer(initialState,
   on(registerSuccess, (state, action) => {
     return {
         ...state,
-        respMsg: action.respMsg
+        respMsg: action.respMsg["message"]
     }
   }),
   on(registerFailure, (state, action) => {
     return {
         ...state,
-        respMsg: action.respMsg
+        respMsg: action.respMsg["message"]
     }
   }),
   on(logout, (state, action) => {

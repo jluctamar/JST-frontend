@@ -8,9 +8,14 @@ export type AuthState = {
     respMsg: string; 
 };
 
+export type NotificationState = {
+    errorMsg: string; 
+};
+
 
 
 
 export interface AppState {
     auth: AuthState
+    notifications: NotificationState
 }

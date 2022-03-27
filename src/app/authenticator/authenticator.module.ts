@@ -8,8 +8,9 @@ import { RegisterComponent } from './register/register.component';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from '../store/effects/auth.effects';
 import { StoreModule } from '@ngrx/store';
-import { AUTH_FEATURE_KEY } from '../app.constants';
+import { AUTH_FEATURE_KEY, NOTIFICATION_FEATURE_KEY } from '../app.constants';
 import { authReducer } from '../store/reducers/authenticator.reducer';
+import { notificationReducer } from '../store/reducers/notification.reducer';
 
 
 
@@ -21,7 +22,8 @@ import { authReducer } from '../store/reducers/authenticator.reducer';
     SharedModule,
     AuthenticatorRoutingModule,
     EffectsModule.forFeature([AuthEffects]),
-    StoreModule.forFeature(AUTH_FEATURE_KEY, authReducer)
+    StoreModule.forFeature(AUTH_FEATURE_KEY, authReducer),
+    StoreModule.forFeature(NOTIFICATION_FEATURE_KEY, notificationReducer),
     
   ]
 })

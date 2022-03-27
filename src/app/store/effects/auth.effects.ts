@@ -18,15 +18,19 @@ import {
   registerFailure,
   logout,
 } from '../actions/authenticator.actions';
+import { loginFailureNotification, registerFailureNotification, updateErrorMsg } from '../actions/notification.actions';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
+import { AppState } from 'src/app/app-state';
+import { Store } from '@ngrx/store';
 
 @Injectable()
 export class AuthEffects {
   constructor(
     private actions$: Actions,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private store: Store<AppState>
   ) {}
 
   register$ = createEffect(() => {
@@ -37,7 +41,10 @@ export class AuthEffects {
           map((resp) => {
             return registerSuccess({ respMsg: resp });
           }),
-          catchError((resp) => of(registerFailure({ respMsg: resp.error })))
+          catchError((resp) => { 
+            this.store.dispatch(registerFailureNotification({ errorMsg: resp.error }))
+            return of(registerFailure({ respMsg: resp.error }))
+          })
         )
       )
     );
