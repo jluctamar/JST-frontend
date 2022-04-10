@@ -48,10 +48,13 @@
     }
 
     app-notifications {
-        position:absolute;
+        // Centers component
+        position: absolute;
+        top: 0%;
+        right: 40%;
+        //transform: translate(-50%, -50%);
+
         z-index: 2;
-        right: 0;
-        top: 64px;
     }
     
     ::ng-deep mat-sidenav-container {

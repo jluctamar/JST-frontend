@@ -8,7 +8,6 @@
         <h1>J's Special Trays</h1>
       </div>
   </mat-toolbar>
-  <app-notifications @slideDownUp *ngIf="showNotification"></app-notifications>
   <mat-sidenav-container id="nav-container">
       <mat-sidenav id="sidenav" #sidenav opened="false" mode="side">
           <a mat-button id="home" matTooltip="Home" matTooltipPosition="right" (click)="onNavigate('/')">
@@ -40,6 +39,9 @@
               <div id="close-nav" class="nav-item">Close</div>
           </a>
       </mat-sidenav>
+      
+      <app-notifications @slideDownUp *ngIf="showNotification"></app-notifications>
+
 
       <router-outlet id="router-out"></router-outlet>
   </mat-sidenav-container>
