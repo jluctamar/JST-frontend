@@ -11,6 +11,7 @@ import { StoreModule } from '@ngrx/store';
 import { AUTH_FEATURE_KEY, NOTIFICATION_FEATURE_KEY } from '../app.constants';
 import { authReducer } from '../store/reducers/authenticator.reducer';
 import { notificationReducer } from '../store/reducers/notification.reducer';
+import { NotificationsEffects } from '../store/effects/notification.effects';
 
 
 
@@ -21,7 +22,7 @@ import { notificationReducer } from '../store/reducers/notification.reducer';
     FormsModule,
     SharedModule,
     AuthenticatorRoutingModule,
-    EffectsModule.forFeature([AuthEffects]),
+    EffectsModule.forFeature([AuthEffects, NotificationsEffects]),
     StoreModule.forFeature(AUTH_FEATURE_KEY, authReducer),
     StoreModule.forFeature(NOTIFICATION_FEATURE_KEY, notificationReducer),
     

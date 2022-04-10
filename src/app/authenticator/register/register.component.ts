@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { AppState } from 'src/app/app-state';
 import { User } from 'src/app/interfaces/authenticator-interfaces';
 import { SlideDownUpAnimation } from 'src/app/shared/animations';
 import { register } from 'src/app/store/actions/authenticator.actions';
-import { selectErrorMsg } from 'src/app/store/selectors/notification.selectors';
+import { selectIsNotificationDisplayed } from 'src/app/store/selectors/notification.selectors';
 
 @Component({
   selector: 'app-register',
@@ -30,16 +29,14 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscriptions.push(this.store
-      .select(selectErrorMsg)
-      .subscribe((errorMsg) => {
-        // WORK IN PROGRESS: The notification component should appear every time the value of the error state message updates
-        this.showNotification = true;
+      .select(selectIsNotificationDisplayed)
+      .subscribe((isDisplayed) => {
+        this.showNotification = isDisplayed;
       }));
   }
 
   onNavigateToLogin(): void {
-    // this.router.navigate(['/auth/login']);
-    this.showNotification = !this.showNotification; // temporary
+    this.router.navigate(['/auth/login']);
   }
 
   onRegister(): void {

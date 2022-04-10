@@ -9,4 +9,8 @@ export const selectErrorMsg = createSelector(
     selectNotificationsFeature,
     (state) => state?.errorMsg
 )
+export const selectIsNotificationDisplayed = createSelector(
+    selectNotificationsFeature,
+    (state) => state?.isDisplayed
+)
 

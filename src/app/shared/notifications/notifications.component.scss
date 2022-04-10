@@ -2,7 +2,7 @@
 
 .content-wrapper{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 55px;
     width: 300px;
     background: $blue-grey;
@@ -10,9 +10,21 @@
     border-bottom-left-radius: 20px;
 
     .notification-msg {
+        flex-basis: 90%;
+        font-size: 1rem;
         color: red;
         text-shadow: $text-shadow;
         align-self: center;
+        text-align: center;
+    }
+
+    button {
+        flex-basis: 10%;
+        bottom: 24px;
+        mat-icon {
+            font-size: 1.5rem;  
+            color: $light-grey;
+        }
     }
 }
 

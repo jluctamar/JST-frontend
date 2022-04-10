@@ -8,8 +8,11 @@ export type AuthState = {
     respMsg: string; 
 };
 
+
 export type NotificationState = {
+    respMsg: string; 
     errorMsg: string; 
+    isDisplayed: boolean;
 };
 
 

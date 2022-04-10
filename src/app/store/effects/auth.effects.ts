@@ -18,7 +18,7 @@ import {
   registerFailure,
   logout,
 } from '../actions/authenticator.actions';
-import { loginFailureNotification, registerFailureNotification, updateErrorMsg } from '../actions/notification.actions';
+import { clearNotification, loginFailureNotification, registerFailureNotification, updateErrorMsg, updateRespMsg } from '../actions/notification.actions';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
 import { AppState } from 'src/app/app-state';
@@ -42,13 +42,33 @@ export class AuthEffects {
             return registerSuccess({ respMsg: resp });
           }),
           catchError((resp) => { 
-            this.store.dispatch(registerFailureNotification({ errorMsg: resp.error }))
             return of(registerFailure({ respMsg: resp.error }))
           })
         )
       )
     );
   });
+
+  registerSuccess$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(registerSuccess),
+      tap(() => this.router.navigate(['/auth/login'])),
+      concatMap((response) => {return of(updateRespMsg({respMsg: response.respMsg }))}  ));
+  });
+
+  
+  registerFailure$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(registerFailure),
+      switchMap((response) => {
+        return of(updateErrorMsg({ errorMsg: response.respMsg }))})
+    );
+  });
+
+
+
+
+
 
   login$ = createEffect(() => {
     return this.actions$.pipe(
@@ -69,19 +89,14 @@ export class AuthEffects {
     );
   },  { dispatch: false });
   
-  registerSuccess$ = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(registerSuccess),
-      tap(() => this.router.navigate(['/auth/login']))
-    );
-  },  { dispatch: false });
+
 
   logout$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(logout),
       tap(() => {
         return this.router.navigate(['/'])}),
-      map(() => { return {type: 'NO_ACTION'}; }) // Without this "no action" Action the tap above causes a continual loop.
+      map(() => clearNotification())  // Dispatch actions to clear state of previous user info
     )
   });
 }

@@ -1,29 +1,49 @@
 import { createReducer, on } from '@ngrx/store';
 import { NotificationState } from 'src/app/app-state';
-import { loginFailureNotification, registerFailureNotification, updateErrorMsg } from '../actions/notification.actions';
+import { clearNotification, hideNotification, loginFailureNotification, registerFailureNotification, showNotification, updateErrorMsg, updateRespMsg } from '../actions/notification.actions';
 
 
 export const initialState: NotificationState = {
-    errorMsg: ''
+    respMsg: '', 
+    errorMsg: '',
+    isDisplayed: false
   };
 
 export const notificationReducer = createReducer(initialState,
   on(updateErrorMsg, (state, action) =>  {
       return { 
           ...state,
+          respMsg: '',
           errorMsg: action.errorMsg['message']
       }
   }),
-  on(registerFailureNotification, (state, action) =>  {
-    return { 
-          ...state,
-          errorMsg: action.errorMsg['message']
-      }
-  }),
-  on(loginFailureNotification, (state, action) =>  {
+  on(updateRespMsg, (state, action) =>  {
       return { 
           ...state,
-          errorMsg: action.errorMsg['message']
+          respMsg: action.respMsg['message'],
+          errorMsg: ''
+      }
+  }),
+  on(showNotification, (state, action) =>  {
+      return { 
+          ...state,
+          isDisplayed: true
+      }
+  }),
+  on(hideNotification, (state, action) =>  {
+      return { 
+          ...state,
+          isDisplayed: false
+
+      }
+  }),
+  on(clearNotification, (state, action) =>  {
+      return { 
+          ...state,
+          respMsg: '',
+          errorMsg: '',
+          isDisplayed: false
+
       }
   }),
 );

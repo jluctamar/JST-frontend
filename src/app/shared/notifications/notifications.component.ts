@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/app-state';
+import { hideNotification } from 'src/app/store/actions/notification.actions';
 import { selectErrorMsg } from 'src/app/store/selectors/notification.selectors';
 
 @Component({
@@ -24,6 +25,9 @@ export class NotificationsComponent implements OnInit {
       }));
   }
 
+  onCloseNotification(): void {
+    this.store.dispatch( hideNotification());
+  }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach( sub => sub.unsubscribe());

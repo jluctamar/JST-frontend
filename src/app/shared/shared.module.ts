@@ -11,6 +11,7 @@ import {MatList, MatListModule} from '@angular/material/list';
 import {MatTooltipModule} from '@angular/material/tooltip'; 
 import { FormsModule } from '@angular/forms';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -26,7 +27,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
     MatInputModule,
     MatRadioModule,
     MatListModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatIconModule
   ],
   exports: [
     NotificationsComponent,
@@ -40,7 +42,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
     MatInputModule,
     MatRadioModule,
     MatListModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatIconModule
 
   ]
 })
