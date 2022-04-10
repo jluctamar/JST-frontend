@@ -11,8 +11,7 @@ import { selectIsNotificationDisplayed } from 'src/app/store/selectors/notificat
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
-  animations: [SlideDownUpAnimation]
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
   user: User = {
@@ -22,17 +21,13 @@ export class RegisterComponent implements OnInit {
     password: '',
     username: '',
   };
-  showNotification = false;
+  
   subscriptions: Subscription[] = [];
 
   constructor(private router: Router, private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.subscriptions.push(this.store
-      .select(selectIsNotificationDisplayed)
-      .subscribe((isDisplayed) => {
-        this.showNotification = isDisplayed;
-      }));
+
   }
 
   onNavigateToLogin(): void {

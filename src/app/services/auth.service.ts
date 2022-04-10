@@ -27,7 +27,7 @@ export class AuthService {
   }
 
   register(user: User): Observable<string> {
-    console.log('############## Inside authservice' + user.email)
+    console.log('############## Inside authservice ' + user.email)
     return this.http
       .post<string>(environment.url + 'users/register', user, httpOptions)
   }

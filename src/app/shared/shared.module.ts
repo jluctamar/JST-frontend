@@ -1,22 +1,21 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatCardModule} from '@angular/material/card';
-import {MatInputModule} from '@angular/material/input';
-import { MatRadioModule } from '@angular/material/radio';
-import {MatList, MatListModule} from '@angular/material/list'; 
-import {MatTooltipModule} from '@angular/material/tooltip'; 
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NotificationsComponent } from './notifications/notifications.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 
 @NgModule({
-  declarations: [NotificationsComponent],
+  declarations: [],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -31,7 +30,6 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule
   ],
   exports: [
-    NotificationsComponent,
     CommonModule,
     FormsModule,
     MatButtonModule,

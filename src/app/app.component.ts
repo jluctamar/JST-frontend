@@ -6,16 +6,20 @@ import { selectIsLoggedIn } from './store/selectors/auth.selectors';
 import { logout } from 'src/app/store/actions/authenticator.actions';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { selectIsNotificationDisplayed } from './store/selectors/notification.selectors';
+import { SlideDownUpAnimation } from './shared/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  animations: [SlideDownUpAnimation]
 })
 export class AppComponent {
   @ViewChild('sidenav') sidenav: MatSidenav;
   title = 'Jays-special-trays';
   loggedInUser = false;
+  showNotification = false;
   subscriptions: Subscription[] = [];
   // gets the screen size
   // limitation: if screen size changes, variable only updates after page refresh
@@ -29,6 +33,13 @@ export class AppComponent {
       .subscribe((state) => {
         this.loggedInUser = state;
       }));
+
+      this.subscriptions.push(this.store
+        .select(selectIsNotificationDisplayed)
+        .subscribe((isDisplayed) => {
+          this.showNotification = isDisplayed;
+          console.log('###### ', this.showNotification )
+        }));
   }
 
   onLogout(): void {

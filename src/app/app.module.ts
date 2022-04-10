@@ -16,6 +16,10 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { notificationReducer } from './store/reducers/notification.reducer';
+import { NotificationsComponent } from './shared/notifications/notifications.component';
+import { NotificationsEffects } from './store/effects/notification.effects';
+import { NOTIFICATION_FEATURE_KEY } from './app.constants';
 
 
 
@@ -23,7 +27,7 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, NotificationsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,8 +42,8 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     MatRadioModule,
     FormsModule,
-    StoreModule.forRoot({ }),
-    EffectsModule.forRoot([]),
+    StoreModule.forRoot({ notifications : notificationReducer }),
+    EffectsModule.forRoot([NotificationsEffects]),
    !environment.production ? StoreDevtoolsModule.instrument() : [],
     
   ],

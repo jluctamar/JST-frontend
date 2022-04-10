@@ -1,17 +1,15 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login/login.component';
-import { SharedModule } from '../shared/shared.module';
-import { AuthenticatorRoutingModule } from './authenticator-routing.module';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RegisterComponent } from './register/register.component';
 import { EffectsModule } from '@ngrx/effects';
-import { AuthEffects } from '../store/effects/auth.effects';
 import { StoreModule } from '@ngrx/store';
-import { AUTH_FEATURE_KEY, NOTIFICATION_FEATURE_KEY } from '../app.constants';
+import { AUTH_FEATURE_KEY } from '../app.constants';
+import { SharedModule } from '../shared/shared.module';
+import { AuthEffects } from '../store/effects/auth.effects';
 import { authReducer } from '../store/reducers/authenticator.reducer';
-import { notificationReducer } from '../store/reducers/notification.reducer';
-import { NotificationsEffects } from '../store/effects/notification.effects';
+import { AuthenticatorRoutingModule } from './authenticator-routing.module';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -22,9 +20,9 @@ import { NotificationsEffects } from '../store/effects/notification.effects';
     FormsModule,
     SharedModule,
     AuthenticatorRoutingModule,
-    EffectsModule.forFeature([AuthEffects, NotificationsEffects]),
+    EffectsModule.forFeature([AuthEffects]),
     StoreModule.forFeature(AUTH_FEATURE_KEY, authReducer),
-    StoreModule.forFeature(NOTIFICATION_FEATURE_KEY, notificationReducer),
+
     
   ]
 })
