@@ -6,7 +6,7 @@ import { login, loginFailure, loginSuccess, logout, register, registerFailure, r
 
 export const initialState: AuthState = {
     isLoggedIn: false,
-    user: undefined,
+    user: null,
     respMsg: ''
   };
 
@@ -35,13 +35,11 @@ export const authReducer = createReducer(initialState,
   on(registerSuccess, (state, action) => {
     return {
         ...state,
-        respMsg: action.respMsg["message"]
     }
   }),
   on(registerFailure, (state, action) => {
     return {
         ...state,
-        respMsg: action.respMsg["message"]
     }
   }),
   on(logout, (state, action) => {

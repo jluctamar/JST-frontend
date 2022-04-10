@@ -1,5 +1,8 @@
 <div class="content-wrapper">
-    <div class="notification-msg">{{errorMsg}}</div>
+    <div class="notification-msg">
+        <div class="success" *ngIf=!!successMsg>{{successMsg}}</div>
+        <div class="error" *ngIf=!!errorMsg>{{errorMsg}}</div>
+    </div>
     <button mat-icon-button (click)="onCloseNotification()">
         <mat-icon>close</mat-icon>
     </button>

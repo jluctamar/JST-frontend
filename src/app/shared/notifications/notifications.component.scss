@@ -12,10 +12,15 @@
     .notification-msg {
         flex-basis: 90%;
         font-size: 1rem;
-        color: red;
         text-shadow: $text-shadow;
         align-self: center;
         text-align: center;
+        .success {
+            color: lightgreen;
+        }
+        .error {
+            color: red;
+        }
     }
 
     button {

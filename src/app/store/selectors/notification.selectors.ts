@@ -5,6 +5,10 @@ import { NOTIFICATION_FEATURE_KEY } from "src/app/app.constants";
 export const selectNotificationsFeature = createFeatureSelector<AppState, NotificationState>(NOTIFICATION_FEATURE_KEY);
 
 
+export const selectRespMsg = createSelector(
+    selectNotificationsFeature,
+    (state) => state?.respMsg
+)
 export const selectErrorMsg = createSelector(
     selectNotificationsFeature,
     (state) => state?.errorMsg

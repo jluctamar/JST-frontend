@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/app-state';
 import { hideNotification } from 'src/app/store/actions/notification.actions';
-import { selectErrorMsg } from 'src/app/store/selectors/notification.selectors';
+import { selectErrorMsg, selectRespMsg } from 'src/app/store/selectors/notification.selectors';
 
 @Component({
   selector: 'app-notifications',
@@ -14,6 +14,7 @@ export class NotificationsComponent implements OnInit {
 
   subscriptions: Subscription[] = [];
   errorMsg: string;
+  successMsg: string;
 
   constructor(private store: Store<AppState>) { }
 
@@ -22,6 +23,12 @@ export class NotificationsComponent implements OnInit {
       .select(selectErrorMsg)
       .subscribe((errorMsg) => {
         this.errorMsg = errorMsg;
+      }));
+
+    this.subscriptions.push(this.store
+      .select(selectRespMsg)
+      .subscribe((respMsg) => {
+        this.successMsg = respMsg;
       }));
   }
 
