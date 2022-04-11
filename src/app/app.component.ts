@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { selectIsNotificationDisplayed } from './store/selectors/notification.selectors';
 import { SlideDownUpAnimation } from './shared/animations';
+import { hideNotification } from './store/actions/notification.actions';
 
 @Component({
   selector: 'app-root',
@@ -59,7 +60,7 @@ export class AppComponent {
     if(this.isSmallScreen) { // TODO: possibly store the screen size in store   
       this.onSideNavToggle();
     }
-
+    this.store.dispatch(hideNotification());
     this.router.navigate([route]);
   }
 

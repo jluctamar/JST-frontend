@@ -28,13 +28,14 @@
 
     button {
         flex-basis: 10%;
-        bottom: 24px;
+        bottom: 20px;
+        left: 8px;
         mat-icon {
             font-size: 1.5rem;  
             color: $light-grey;
         }
     }
-}
+
 
 
 
@@ -74,22 +75,43 @@
 
 ********************************/
 
-@media only screen and (max-width: 767px) and (orientation: portrait) {
+    @media only screen and (max-width: 767px) and (orientation: portrait) {
+
+        width: 100%;
+        button {
+            bottom: 20px;
+            left: 12px;
+        }
+        
+    }
+
+    @media only screen and (max-width: 767px) and (orientation: landscape) {
+        width: 100%;
+        button {
+            bottom: 20px;
+            left: 24px;
+        }
+        
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+        width: 100%;
+        button {
+            bottom: 20px;
+            left: 24px;
+        }
+
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+        width: 100%;
+        button {
+            bottom: 20px;
+            left: 24px;
+        }
+    }
+
 
 }
-
-@media only screen and (max-width: 767px) and (orientation: landscape) {
-    
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-
-
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
-
-}
-
   
