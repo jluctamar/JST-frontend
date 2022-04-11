@@ -8,7 +8,7 @@ import {
 } from 'rxjs/operators';
 import { AppState } from 'src/app/app-state';
 import { AuthService } from 'src/app/services/auth.service';
-import { registerFailureNotification, showNotification, updateErrorMsg, updateRespMsg } from '../actions/notification.actions';
+import { showNotification, updateErrorMsg, updateRespMsg } from '../actions/notification.actions';
 
 @Injectable()
 export class NotificationsEffects {
