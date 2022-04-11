@@ -1,28 +1,22 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Store } from '@ngrx/store';
+import { of } from 'rxjs';
 import {
   catchError,
   concatMap,
-  map,
-  mergeMap,
-  switchMap,
-  tap,
+  map, switchMap,
+  tap
 } from 'rxjs/operators';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { AppState } from 'src/app/app-state';
 import { AuthService } from 'src/app/services/auth.service';
 import {
   login,
   loginFailure,
-  loginSuccess,
-  register,
-  registerSuccess,
-  registerFailure,
-  logout,
+  loginSuccess, logout, register, registerFailure, registerSuccess
 } from '../actions/authenticator.actions';
-import { clearNotification, loginFailureNotification, registerFailureNotification, updateErrorMsg, updateRespMsg } from '../actions/notification.actions';
-import { of } from 'rxjs';
-import { Router } from '@angular/router';
-import { AppState } from 'src/app/app-state';
-import { Store } from '@ngrx/store';
+import { clearNotification, updateErrorMsg, updateRespMsg } from '../actions/notification.actions';
 
 @Injectable()
 export class AuthEffects {
@@ -61,7 +55,7 @@ export class AuthEffects {
     return this.actions$.pipe(
       ofType(registerFailure),
       switchMap((response) => {
-        return of(updateErrorMsg({ errorMsg: response.respMsg['message'] }))})
+        return of(updateErrorMsg({ errorMsg: response.respMsg['message'] || 'Unknown Error' }))})
     );
   });
 
@@ -96,7 +90,7 @@ export class AuthEffects {
     return this.actions$.pipe(
       ofType(loginFailure),
       switchMap((response) => {
-        return of(updateErrorMsg({ errorMsg: 'User not found, please check credentials.' }))})
+        return of(updateErrorMsg({ errorMsg: 'User not found.' }))})
     );
   });
 
