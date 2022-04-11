@@ -38,7 +38,6 @@ export class AppComponent {
         .select(selectIsNotificationDisplayed)
         .subscribe((isDisplayed) => {
           this.showNotification = isDisplayed;
-          console.log('###### ', this.showNotification )
         }));
   }
 

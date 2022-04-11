@@ -9,6 +9,8 @@
     padding: 1em;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    box-shadow: 0 10px 6px -6px $dark-grey;
+    opacity: .9;
 
     .notification-msg {
         flex-basis: 90%;
@@ -20,7 +22,7 @@
             color: lightgreen;
         }
         .error {
-            color: red;
+            color: #ffbaba;
         }
     }
 

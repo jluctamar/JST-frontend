@@ -6,8 +6,7 @@ import { login, loginFailure, loginSuccess, logout, register, registerFailure, r
 
 export const initialState: AuthState = {
     isLoggedIn: false,
-    user: null,
-    respMsg: ''
+    user: null
   };
 
 export const authReducer = createReducer(initialState,
@@ -21,7 +20,6 @@ export const authReducer = createReducer(initialState,
         ...state,
         isLoggedIn: true,
         user: action.user,
-        respMsg: "Login Successfull"
     }
   }),
   on(loginFailure, (state, action) => {
@@ -29,7 +27,6 @@ export const authReducer = createReducer(initialState,
         ...state,
         isLoggedIn: false,
         user: null,
-        respMsg: "Unauthorized. User Not Found."
     }
   }),
   on(registerSuccess, (state, action) => {
@@ -47,7 +44,6 @@ export const authReducer = createReducer(initialState,
         ...state,
         isLoggedIn: false,
         user: null,
-        respMsg: "Logout Successfull"
     }
   }),
 );

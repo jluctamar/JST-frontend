@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { NotificationState } from 'src/app/app-state';
-import { clearNotification, hideNotification, loginFailureNotification, registerFailureNotification, showNotification, updateErrorMsg, updateRespMsg } from '../actions/notification.actions';
+import { clearNotification, hideNotification, showNotification, updateErrorMsg, updateRespMsg } from '../actions/notification.actions';
 
 
 export const initialState: NotificationState = {
@@ -14,13 +14,13 @@ export const notificationReducer = createReducer(initialState,
       return { 
           ...state,
           respMsg: '',
-          errorMsg: action.errorMsg['message']
+          errorMsg: action.errorMsg
       }
   }),
   on(updateRespMsg, (state, action) =>  {
       return { 
           ...state,
-          respMsg: action.respMsg['message'],
+          respMsg: action.respMsg,
           errorMsg: ''
       }
   }),

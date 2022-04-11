@@ -53,7 +53,7 @@ export class AuthEffects {
     return this.actions$.pipe(
       ofType(registerSuccess),
       tap(() => this.router.navigate(['/auth/login'])),
-      concatMap((response) => {return of(updateRespMsg({respMsg: response.respMsg }))}  ));
+      concatMap((response) => {return of(updateRespMsg({respMsg: response.respMsg['message'] }))}  ));
   });
 
   
@@ -61,7 +61,7 @@ export class AuthEffects {
     return this.actions$.pipe(
       ofType(registerFailure),
       switchMap((response) => {
-        return of(updateErrorMsg({ errorMsg: response.respMsg }))})
+        return of(updateErrorMsg({ errorMsg: response.respMsg['message'] }))})
     );
   });
 
@@ -85,9 +85,21 @@ export class AuthEffects {
   loginSuccess$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(loginSuccess),
-      tap(() => this.router.navigate(['/']))
+      tap(() => this.router.navigate(['/'])),
+      switchMap((response) => {
+        return of(updateRespMsg({ respMsg: 'Login Successful.' }))})
+        
     );
-  },  { dispatch: false });
+  });
+
+  loginFailure$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(loginFailure),
+      switchMap((response) => {
+        return of(updateErrorMsg({ errorMsg: 'User not found, please check credentials.' }))})
+    );
+  });
+
   
 
 
