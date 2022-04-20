@@ -6,6 +6,8 @@ const routes: Routes = [
   { path: 'auth', loadChildren: () => import('./authenticator/authenticator.module').then(module => module.AuthenticatorModule ) },
   { path: 'user-management', loadChildren: () => import('./user-management/user-management.module')
                                                           .then(module => module.UserManagementModule ) },
+  { path: 'order-management', loadChildren: () => import('./order-management/order-management.module')
+                                                          .then(module => module.OrderManagementModule ) },
   { path: '**', redirectTo: '' }
 ];
 
