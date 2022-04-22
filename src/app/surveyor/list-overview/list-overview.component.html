@@ -13,7 +13,7 @@
               </mat-selection-list>
         </div>
         <div class="entree-list">
-            <mat-list  >
+            <mat-list>
                 <mat-list-item *ngFor="let dish of selectedMeals" [value]="dish" (click)="onSelectDish(dish)">
                     <img [src]="dish?.imgSrc" [alt]="" />
                     <div mat-line>{{dish.title}}</div>
