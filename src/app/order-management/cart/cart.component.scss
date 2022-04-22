@@ -13,14 +13,10 @@
         width: 70%;
         overflow-y: auto;
         
-        
-        .item {
-            display: flex;
-            
-            ::ng-deep .mat-list-item-content {
-                width: 100%;
-            }
-            
+
+        .mat-table {
+            width: 100%;
+
             img {
                 flex-basis: 10%;
                 object-fit: cover;
@@ -30,28 +26,19 @@
                 width: 10em; // em scale better than percentages here
                 margin-right: 3em;
             }
-
-            .item-details {
-                flex-basis: 90%;
-
-                display: flex;
-                width: 100%;
-                justify-content: space-between;
-                
-                .remove-btn {
-                    background-color: $blue-grey;
-                    color: $light-grey;
-                    font-size: 1.5rem;
-                    box-shadow: inset 0px 0px 5px 0px $light-grey;
-                    border-radius: 12px;
-                    transition: 0.2s;
-                    &:hover {
-                        background-color: $browse-color;
-                    }
-                }
-
-            }
-
         }
+
+        .remove-btn {
+            background-color: $blue-grey;
+            color: $light-grey;
+            font-size: 1.5rem;
+            box-shadow: inset 0px 0px 5px 0px $light-grey;
+            border-radius: 12px;
+            transition: 0.2s;
+            &:hover {
+                background-color: $browse-color;
+            }
+        }
+        
     }
 }

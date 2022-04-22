@@ -11,7 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -27,7 +27,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatRadioModule,
     MatListModule,
     MatTooltipModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule
   ],
   exports: [
     CommonModule,
@@ -41,7 +42,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatRadioModule,
     MatListModule,
     MatTooltipModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule
 
   ]
 })

@@ -11,6 +11,27 @@ export class CartComponent implements OnInit {
 
   cartItems: DishImage[];
 
+  columns = [
+    {
+      columnDef: 'dish',
+      header: 'Dish',
+      cell: (element: DishImage) => `${element.imgSrc}`,
+    },
+    {
+      columnDef: 'name',
+      header: 'Name',
+      cell: (element: DishImage) => `${element.title}`,
+    },
+    {
+      columnDef: 'price',
+      header: 'Price',
+      cell: (element: DishImage) => `${element.price}`,
+    },
+  ];
+
+
+  displayedColumns = this.columns.map(c => c.columnDef);
+
   constructor() { }
 
   ngOnInit(): void {
