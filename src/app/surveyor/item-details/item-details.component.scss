@@ -72,6 +72,7 @@
             color: $light-grey;
             margin-right: 8px;
             font-size: 1rem;
+            transition: .2s;
           
             &:hover {
               background-color: $browse-color;
@@ -79,12 +80,6 @@
 
           }
           
-          .mat-flat-button.mat-button-disabled.mat-button-disabled {
-            background-color: gray;
-            &:hover {
-              background-color: none;
-            }
-          }
         }
       }
     }

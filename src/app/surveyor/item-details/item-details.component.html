@@ -14,8 +14,9 @@
 
       <div class="action-container">
         <h3>${{dish.price}}</h3>
+        <input matInput type="number" name="quantity" [(ngModel)]="quantity" placeholder="1" value="1" min="1">
         <div class="button-container">
-          <button mat-flat-button type="button" [disabled]="!isUserLoggedIn">Cart</button>
+          <button mat-flat-button type="button" (click)="onAddToCart()">Cart</button>
           <button mat-button (click)="onClose()">Close</button>
         </div>
       </div>
