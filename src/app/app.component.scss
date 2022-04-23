@@ -33,6 +33,7 @@
         }
 
         .logo-wrapper {
+            position: relative;
 
             .logo {
                 background-image: url("../../src/assets/food-bowl.png");
@@ -59,6 +60,10 @@
                 height: 24px;
                 width: 24px;
                 border-radius: 100%;
+                position:absolute;
+                top: 0px;
+                right: -16px;
+                
             }
         }
     }
