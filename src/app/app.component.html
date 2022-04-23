@@ -4,8 +4,13 @@
           <mat-icon class="material-icons">menu</mat-icon>
       </button>
       <div class="sub-header">
-        <div class="logo" (click)="onGoToHome()"></div>
-        <h1>J's Special Trays</h1>
+          <h1 class="name" (click)="onGoToHome()">J's Special Trays</h1>
+      </div>
+      <div class="logo-wrapper"  matTooltip="Cart" matTooltipPosition="left">
+          <div class="logo" (click)="onGoToCart()"></div>
+          <div class="cart-items-amt">
+            <div class="total">{{totalItemsInCart}}</div>  
+          </div>
       </div>
   </mat-toolbar>
   <mat-sidenav-container id="nav-container">

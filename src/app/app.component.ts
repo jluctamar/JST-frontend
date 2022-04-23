@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 import { selectIsNotificationDisplayed } from './store/selectors/notification.selectors';
 import { SlideDownUpAnimation } from './shared/animations';
 import { hideNotification } from './store/actions/notification.actions';
+import { selectCartItems, selectNumCartItems } from './store/selectors/order-management.selectors';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,7 @@ export class AppComponent {
   title = 'Jays-special-trays';
   loggedInUser = false;
   showNotification = false;
+  totalItemsInCart = 0;
   subscriptions: Subscription[] = [];
   // gets the screen size
   // limitation: if screen size changes, variable only updates after page refresh
@@ -40,6 +42,12 @@ export class AppComponent {
         .subscribe((isDisplayed) => {
           this.showNotification = isDisplayed;
         }));
+
+      this.subscriptions.push(this.store
+        .select(selectNumCartItems)
+        .subscribe((length) => {
+          this.totalItemsInCart = length;
+        }));
   }
 
   onLogout(): void {
@@ -54,6 +62,10 @@ export class AppComponent {
     this.router.navigate(['/']);
   }
 
+  onGoToCart(){
+    this.router.navigate(['/order-management/cart']);
+  }
+
   onNavigate( route: string): void {
 
     // the menu needs to close after every selection
@@ -63,6 +75,7 @@ export class AppComponent {
     this.store.dispatch(hideNotification());
     this.router.navigate([route]);
   }
+
 
   onNavEvent(event):void {
     this.sidenav.close();

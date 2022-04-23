@@ -16,7 +16,6 @@
     justify-content: flex-end;
     position: fixed;
     right: 0;
-    // margin-right: 8px;
     padding-right: 8px;
     padding-top: 8px;
     background-color: $toolbar;
@@ -35,6 +34,40 @@
     .list-icon {
       filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(130%) contrast(103%);
     }          
+  }
+
+
+
+   /*******************************
+  
+        MOBILE VIEW STYLES
+  
+    ********************************/
+
+  @media only screen and (max-width: 767px) and (orientation: portrait) {
+    mat-radio-group { 
+      border-top-left-radius: 8px;
+      bottom: 0px;
+    }
+
+  }
+  
+  @media only screen and (max-width: 767px) and (orientation: landscape) {
+    mat-radio-group { 
+      border-top-left-radius: 8px;
+      bottom: 0px;
+    }
+
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+
+
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+
   }
 
 }

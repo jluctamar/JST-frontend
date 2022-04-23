@@ -9,6 +9,10 @@ export const selectCartItems = createSelector(
     selectOrdersFeature,
     (state) => state?.cartItems
 )
+export const selectNumCartItems = createSelector(
+    selectOrdersFeature,
+    (state) => state?.cartItems.length
+)
 
 
 

@@ -14,9 +14,19 @@
 
       <div class="action-container">
         <h3>${{dish.price}}</h3>
-        <input matInput type="number" name="quantity" [(ngModel)]="quantity" placeholder="1" value="1" min="1">
+        <mat-form-field appearance="standard">
+          <mat-label>QTY</mat-label>
+          <mat-select [(ngModel)]="quantity" required>
+              <mat-option [value]="1">1</mat-option>
+              <mat-option [value]="2">2</mat-option>
+              <mat-option [value]="3">3</mat-option>
+              <mat-option [value]="4">4</mat-option>
+              <mat-option [value]="5">5</mat-option>
+          </mat-select>
+      </mat-form-field>
+        
         <div class="button-container">
-          <button mat-flat-button type="button" (click)="onAddToCart()">Cart</button>
+          <button mat-flat-button type="button" (click)="onAddToCart()" [disabled]="quantity==0">Cart</button>
           <button mat-button (click)="onClose()">Close</button>
         </div>
       </div>
