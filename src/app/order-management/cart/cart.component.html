@@ -1,6 +1,6 @@
 <div class="wrapper">
     <mat-card class="cart-items">
-        <table mat-table [dataSource]="cartItems" class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
             <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
               <th mat-header-cell *matHeaderCellDef>
                 {{column.header}}
@@ -9,14 +9,29 @@
                 <ng-container  *ngIf="column.header === 'Dish'">
                     <img [src]="column.cell(row)" />   
                 </ng-container>
-                <ng-container  *ngIf="column.header !== 'Dish'">
+                <ng-container  *ngIf="column.header === 'Actions'">
+                    <button
+                        mat-raised-button
+                        (click)="onRemoveDish(row)"
+                        class="remove-btn">Remove    
+                    </button>
+                </ng-container>
+                <ng-container  *ngIf="column.header !== 'Dish' && column.header !== 'Actions' ">
                     {{column.header === 'Price' ? '$'+column.cell(row) : column.cell(row)}}
                 </ng-container>
               </td>
+              <td mat-footer-cell *matFooterCellDef >
+                {{column.header === 'Dish' ? 'Total': column.header === 'Price' ? '$'+cartTotal : ''}}
+              </td>
             </ng-container>
           
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"class="table-row" ></tr>
+            <tr mat-footer-row *matFooterRowDef="displayedColumns" class="footer"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[3]"
+        showFirstLastButtons
+        class="mat-elevation-z8">
+        </mat-paginator>  
     </mat-card>    
 </div>

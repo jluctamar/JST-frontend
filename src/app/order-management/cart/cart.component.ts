@@ -1,21 +1,27 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/app-state';
 import { CartItem } from 'src/app/interfaces/order-management.interfaces';
-import { DishImage } from 'src/app/interfaces/surveyor-interfaces';
-import { selectCartItems } from 'src/app/store/selectors/order-management.selectors';
-import { environment } from 'src/environments/environment';
+import { removeCartItem } from 'src/app/store/actions/order-management.actions';
+import { selectCartItems, selectCartTotal } from 'src/app/store/selectors/order-management.selectors';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit, OnDestroy {
+export class CartComponent implements OnInit, OnDestroy, AfterViewInit {
 
   subscriptions: Subscription[] = [];
-  cartItems: CartItem[];
+  cartItems: CartItem[] = [];
+  cartTotal: number;
+  dataSource 
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
 
   columns = [
     {
@@ -38,22 +44,47 @@ export class CartComponent implements OnInit, OnDestroy {
       header: 'Quantity',
       cell: (element: CartItem) => `${element.quantity}`,
     },
+    {
+      columnDef: 'actions',
+      header: 'Actions',
+    },
 
   ];
 
-
   displayedColumns = this.columns.map(c => c.columnDef);
+
+
 
   constructor(private store: Store<AppState>) { }
 
-  ngOnInit(): void {
 
+  ngOnInit(): void {
+    
     this.subscriptions.push(this.store
       .select(selectCartItems)
       .subscribe((stateCartItems) => {
         this.cartItems = stateCartItems;
       }));
+      
+      this.subscriptions.push(this.store
+        .select(selectCartTotal)
+        .subscribe((total) => {
+          this.cartTotal = total;
+        }));
+        
+      this.dataSource = new MatTableDataSource<CartItem>(this.cartItems);
+        
 
+  }
+
+  ngAfterViewInit(): void {
+      this.dataSource.paginator = this.paginator;
+  };
+  
+
+  onRemoveDish(cartItem:CartItem): void {
+    this.cartItems = this.cartItems.filter(item=> item.dishName !== cartItem.dishName);
+    this.store.dispatch(removeCartItem({cartItems: this.cartItems}))
   }
 
 

@@ -8,6 +8,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { orderReducer } from '../store/reducers/order-management.reducer';
 import { ORDER_FEATURE_KEY } from '../app.constants';
+import { OrderManagementEffects } from '../store/effects/order-management.effects';
 
 
 
@@ -17,7 +18,7 @@ import { ORDER_FEATURE_KEY } from '../app.constants';
     CommonModule,
     SharedModule,
     OrderManagementRoutingModule,
-    EffectsModule.forFeature([]),
+    EffectsModule.forFeature([OrderManagementEffects]),
     StoreModule.forFeature(ORDER_FEATURE_KEY, orderReducer),
   ]
 })

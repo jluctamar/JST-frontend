@@ -13,6 +13,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatTableModule} from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatTooltipModule,
     MatIconModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule
   ],
   exports: [
     CommonModule,
@@ -46,7 +48,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatTooltipModule,
     MatIconModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule
+
 
 
   ]

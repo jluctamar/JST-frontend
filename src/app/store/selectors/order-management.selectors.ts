@@ -13,6 +13,10 @@ export const selectNumCartItems = createSelector(
     selectOrdersFeature,
     (state) => state?.cartItems.length
 )
+export const selectCartTotal = createSelector(
+    selectOrdersFeature,
+    (state) => state?.total
+)
 
 
 

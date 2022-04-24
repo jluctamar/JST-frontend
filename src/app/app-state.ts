@@ -17,7 +17,8 @@ export type NotificationState = {
 };
 
 export type OrderState = {
-    cartItems: CartItem[]
+    cartItems: CartItem[];
+    total: number;
 }
 
 
@@ -51,7 +52,8 @@ export const initialOrderState: OrderState = {
             dishName: 'Pate',
             imgSrc: environment.production ? 'https://drive.google.com/uc?id=1Yzppix62vZ5Ea4gvutps01BQ-CkcWOqe' : '/assets/dish5.jpg',
             price: 6.00,
-            quantity: 3
+            quantity: 2
           },
-    ]
+    ],
+    total: 24
 }
