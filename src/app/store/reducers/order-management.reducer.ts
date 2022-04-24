@@ -8,7 +8,7 @@ export const orderReducer = createReducer(initialOrderState,
     on(addCartItem, (state, action) =>  {
         return { 
             ...state,
-            cartItems: [...state.cartItems, action.cartItem]
+            cartItems: action.cartItems
         }
     }),
 );

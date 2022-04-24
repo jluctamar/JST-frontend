@@ -1,15 +1,15 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Store } from '@ngrx/store';
-import { AppState } from './app-state';
-import { selectIsLoggedIn } from './store/selectors/auth.selectors';
-import { logout } from 'src/app/store/actions/authenticator.actions';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { selectIsNotificationDisplayed } from './store/selectors/notification.selectors';
+import { logout } from 'src/app/store/actions/authenticator.actions';
+import { AppState } from './app-state';
 import { SlideDownUpAnimation } from './shared/animations';
 import { hideNotification } from './store/actions/notification.actions';
-import { selectCartItems, selectNumCartItems } from './store/selectors/order-management.selectors';
+import { selectIsLoggedIn } from './store/selectors/auth.selectors';
+import { selectIsNotificationDisplayed } from './store/selectors/notification.selectors';
+import { selectNumCartItems } from './store/selectors/order-management.selectors';
 
 @Component({
   selector: 'app-root',

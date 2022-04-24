@@ -5,6 +5,7 @@ import { AppState } from 'src/app/app-state';
 import { CartItem } from 'src/app/interfaces/order-management.interfaces';
 import { DishImage } from 'src/app/interfaces/surveyor-interfaces';
 import { addCartItem } from 'src/app/store/actions/order-management.actions';
+import { selectCartItems } from 'src/app/store/selectors/order-management.selectors';
 
 @Component({
   selector: 'app-item-details',
@@ -17,7 +18,8 @@ export class ItemDetailsComponent implements OnInit {
   @Output() closeDetails = new EventEmitter();
 
   subscriptions: Subscription[] = [];
-  item: CartItem = {
+  cartItems: CartItem[] = []
+  newCartItem: CartItem = {
     dishName : '',
     imgSrc: '',
     price: 0,
@@ -30,15 +32,25 @@ export class ItemDetailsComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.subscriptions.push(this.store
+      .select(selectCartItems)
+      .subscribe((items) => {
+        this.cartItems = items;
+      }));
   }
 
   onAddToCart():void {
 
-    this.item.dishName = this.dish.title;
-    this.item.price = parseInt(this.dish.price);
-    this.item.imgSrc = this.dish.imgSrc;
-    this.item.quantity = this.quantity;
-    this.store.dispatch(addCartItem({cartItem: this.item}));
+    this.newCartItem.dishName = this.dish.title;
+    this.newCartItem.price = parseInt(this.dish.price);
+    this.newCartItem.imgSrc = this.dish.imgSrc;
+    this.newCartItem.quantity = this.quantity;
+    
+    if (!this.checkForDuplicates(this.newCartItem)) {
+      this.cartItems = [...this.cartItems, this.newCartItem ]
+    }
+    
+    this.store.dispatch(addCartItem({cartItems: this.cartItems}));
 
     this.onClose();
   }
@@ -47,6 +59,25 @@ export class ItemDetailsComponent implements OnInit {
   onClose(): void {
     this.closeDetails.emit();
   }
+
+  checkForDuplicates(newDish: CartItem): boolean {
+    let itemCopy: CartItem = null;
+    let hasDuplicate = false;
+    this.cartItems.forEach(item => {
+      if (newDish.dishName === item.dishName) {
+        
+        // update quantity 
+        itemCopy = {...item};
+        itemCopy['quantity'] = item.quantity + newDish.quantity
+
+        this.cartItems = this.cartItems.filter(item=> item.dishName !== itemCopy.dishName);
+        this.cartItems.push(itemCopy)
+        hasDuplicate =  true;
+      }
+    })
+    return hasDuplicate;
+  }
+
 
   ngOnDestroy(): void {
     this.subscriptions.forEach( sub => sub.unsubscribe());
