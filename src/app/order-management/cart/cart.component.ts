@@ -18,7 +18,7 @@ export class CartComponent implements OnInit, OnDestroy, AfterViewInit {
   subscriptions: Subscription[] = [];
   cartItems: CartItem[] = [];
   cartTotal: number;
-  dataSource 
+  dataSource = new MatTableDataSource<CartItem>(this.cartItems);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -59,20 +59,22 @@ export class CartComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
   ngOnInit(): void {
+
     
     this.subscriptions.push(this.store
       .select(selectCartItems)
       .subscribe((stateCartItems) => {
         this.cartItems = stateCartItems;
+        this.dataSource.data = this.cartItems;
+
       }));
       
-      this.subscriptions.push(this.store
-        .select(selectCartTotal)
-        .subscribe((total) => {
-          this.cartTotal = total;
-        }));
+    this.subscriptions.push(this.store
+      .select(selectCartTotal)
+      .subscribe((total) => {
+        this.cartTotal = total;
+      }));
         
-      this.dataSource = new MatTableDataSource<CartItem>(this.cartItems);
         
 
   }
