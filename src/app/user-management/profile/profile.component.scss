@@ -115,9 +115,12 @@
             &:hover {
                 background-color: $dark-grey;
             }
+            &:disabled {
+                background-color:  gray;;
+            }
         }
 
-        .cancel {
+        .cancel, .delete {
             color: $blue-grey;
             font-family: $font;
             font-size: 1rem;
@@ -126,6 +129,12 @@
             &:hover {
                 background-color: $light-grey;
             }
+        }
+
+        .delete {
+          &:hover {
+            background-color: red !important;
+          }
         }
       }
     }

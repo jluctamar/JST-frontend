@@ -18,16 +18,20 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class UserManagementService {
   constructor(private http: HttpClient) {}
+  
+  updateUser(user:User): Observable<User>{
+      return this.http
+        .post<User>(environment.url + 'users/update', user, httpOptions)
+  } 
 
-  login(username: string, password: string): Observable<User> {
-    return this.http
-      .post<User>(environment.url + 'users/login', { username, password }, httpOptions)
-  }
+  deleteUser(user:User): Observable<string>{
+      return this.http
+        .post<string>(environment.url + 'users/delete', user, httpOptions)
+    }   
 
-  register(user: User): Observable<string> {
-    return this.http
-      .post<string>(environment.url + 'users/register', user, httpOptions)
-  }
+
 }
+
+

@@ -6,6 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { AUTH_FEATURE_KEY } from '../app.constants';
 import { SharedModule } from '../shared/shared.module';
 import { AuthEffects } from '../store/effects/auth.effects';
+import { UserManagementEffects } from '../store/effects/user-management.effects';
 import { authReducer } from '../store/reducers/authenticator.reducer';
 import { AuthenticatorRoutingModule } from './authenticator-routing.module';
 import { LoginComponent } from './login/login.component';
@@ -20,7 +21,7 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     SharedModule,
     AuthenticatorRoutingModule,
-    EffectsModule.forFeature([AuthEffects]),
+    EffectsModule.forFeature([AuthEffects, UserManagementEffects]),
     StoreModule.forFeature(AUTH_FEATURE_KEY, authReducer),
 
     

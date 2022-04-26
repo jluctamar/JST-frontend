@@ -1,7 +1,7 @@
-import { createReducer, on, State } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 import { AuthState } from 'src/app/app-state';
-import { User } from 'src/app/interfaces/authenticator-interfaces';
-import { login, loginFailure, loginSuccess, logout, register, registerFailure, registerSuccess } from '../actions/authenticator.actions';
+import { loginFailure, loginSuccess, logout, register, registerFailure, registerSuccess } from '../actions/authenticator.actions';
+import { updateUserStateProperty } from '../actions/user-management.actions';
 
 
 export const initialState: AuthState = {
@@ -39,6 +39,13 @@ export const authReducer = createReducer(initialState,
         ...state,
     }
   }),
+  on(updateUserStateProperty, (state, action) =>  {
+    return { 
+        ...state,
+        user: action.user
+    }
+}),
+
   on(logout, (state, action) => {
     return {
         ...state,
