@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/app-state';
 import { CartItem } from 'src/app/interfaces/order-management.interfaces';
-import { removeCartItem } from 'src/app/store/actions/order-management.actions';
+import { checkout, removeCartItem } from 'src/app/store/actions/order-management.actions';
 import { selectCartItems, selectCartTotal } from 'src/app/store/selectors/order-management.selectors';
 
 @Component({
@@ -85,6 +85,10 @@ export class CartComponent implements OnInit, OnDestroy, AfterViewInit {
   onRemoveDish(cartItem:CartItem): void {
     this.cartItems = this.cartItems.filter(item=> item.dishName !== cartItem.dishName);
     this.store.dispatch(removeCartItem({cartItems: this.cartItems}))
+  }
+
+  onCheckout(): void {
+    this.store.dispatch(checkout())
   }
 
 

@@ -16,6 +16,19 @@ $text-shadow: #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px,
   #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px,
   #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px;
 
+
+
+/*Mixins*/
+@mixin set-text-shadow($color) {
+  text-shadow: $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px,
+  $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px,
+  $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px,
+  $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px, $color 0px 0px 1px;;
+}
+
+
+
+
 *,
 *::before,
 *::after {

@@ -8,7 +8,7 @@ import {
 } from 'rxjs/operators';
 import { AppState } from 'src/app/app-state';
 import { AuthService } from 'src/app/services/auth.service';
-import { showNotification, updateErrorMsg, updateRespMsg } from '../actions/notification.actions';
+import { clearNotification, hideNotification, showNotification, updateErrorMsg, updateRespMsg } from '../actions/notification.actions';
 
 @Injectable()
 export class NotificationsEffects {
@@ -32,6 +32,14 @@ export class NotificationsEffects {
       ofType(updateRespMsg),
       switchMap(() => {
         return of(showNotification())} )
+    )
+  })
+
+  hideNotification$ = createEffect (() => {
+    return this.actions$.pipe(
+      ofType(hideNotification),
+      switchMap(() => {
+        return of(clearNotification())} )
     )
   })  
 

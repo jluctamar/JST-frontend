@@ -8,7 +8,8 @@ import {
 } from 'rxjs/operators';
 import { AppState } from 'src/app/app-state';
 import { AuthService } from 'src/app/services/auth.service';
-import { addCartItem, removeCartItem, updateOrderTotal } from '../actions/order-management.actions';
+import { updateErrorMsg } from '../actions/notification.actions';
+import { addCartItem, checkout, removeCartItem, updateOrderTotal } from '../actions/order-management.actions';
 
 @Injectable()
 export class OrderManagementEffects {
@@ -36,6 +37,16 @@ export class OrderManagementEffects {
         let total = 0
         action.cartItems.forEach(item => total = total + (item.price*item.quantity))
         return of(updateOrderTotal({ total: total }))})
+    )
+  }) 
+
+
+  checkout$ = createEffect (() => {
+    return this.actions$.pipe(
+      ofType(checkout),
+      switchMap((action) => {
+        // FEATURE UNAVAILABLE 
+        return of(updateErrorMsg({errorMsg: "Currently Unavailable"}))})
     )
   }) 
 

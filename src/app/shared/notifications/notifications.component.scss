@@ -22,7 +22,8 @@
             color: lightgreen;
         }
         .error {
-            color: #ffbaba;
+            color: white;
+            @include set-text-shadow(red);
         }
     }
 
