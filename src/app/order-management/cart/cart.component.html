@@ -1,5 +1,6 @@
 <div class="wrapper">
     <mat-card class="cart-items">
+      <div class="inner-wrapper">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
             <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
               <th mat-header-cell *matHeaderCellDef>
@@ -33,8 +34,9 @@
         showFirstLastButtons
         class="mat-elevation-z8">
         </mat-paginator>
+      </div>
         
-        <button mat-raised-button (click)="onCheckout()" class="checkout-btn"> Checkout </button>
+      <button mat-raised-button (click)="onCheckout()" class="checkout-btn"> Checkout </button>
 
     </mat-card>    
 </div>
