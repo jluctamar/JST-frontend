@@ -21,11 +21,11 @@
             <div class="update-container" *ngIf="isUpdatingUser"> 
                 <form [formGroup]="profileForm">
                     <mat-form-field appearance="standard">
-                        <mat-label>{{currUser?.username}}</mat-label>
+                        <mat-label>{{username}}</mat-label>
                         <input matInput formControlName="username" readonly>
                         </mat-form-field>
                     <mat-form-field appearance="standard">
-                        <mat-label>{{currUser?.email}}</mat-label>
+                        <mat-label>{{email}}</mat-label>
                         <input matInput  formControlName="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" readonly >
                         </mat-form-field>
                     <mat-form-field appearance="standard">

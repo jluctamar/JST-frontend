@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import {
   catchError,
+  concatMap,
   map,
   switchMap
 } from 'rxjs/operators';
@@ -32,12 +33,12 @@ export class UserManagementEffects {
             return updateUserStateProperty({user: resp}) 
           }),
           catchError((resp) => {
-            return of(updateErrorMsg({errorMsg: "User Was not updated"})) 
+            return of(updateErrorMsg({errorMsg: "User Was Not Updated"})) 
           })
         )
       )
     )
-}) 
+  }) 
 
   deleteUser$ = createEffect (() => {
     return this.actions$.pipe(
@@ -45,27 +46,27 @@ export class UserManagementEffects {
       switchMap((action) => 
         this.userManagementService.deleteUser(action.user).pipe(
           map((resp) => {
-            this.store.dispatch(logout())
-            return (updateRespMsg({respMsg: "User Sucessfuly Deleted"})) 
+            this.store.dispatch(logout());
+            return (updateRespMsg({respMsg: resp['message']})) 
           }),
           catchError((resp) => {
-            return of(updateErrorMsg({errorMsg: "User failed to delete"})) 
+            return of(updateErrorMsg({errorMsg: "User Failed To Delete"})) 
           })
         )
       )
     )
-}) 
+  }) 
 
 
 
 
-updateUserStateProperty$ = createEffect (() => {
-  return this.actions$.pipe(
-    ofType(updateUserStateProperty),
-    switchMap(() => {
-      return of(updateRespMsg({respMsg: "Successfuly Updated User"}))} )
-  )
-})
+  updateUserStateProperty$ = createEffect (() => {
+    return this.actions$.pipe(
+      ofType(updateUserStateProperty),
+      switchMap(() => {
+        return of(updateRespMsg({respMsg: "Successfully Updated User"}))} )
+    )
+  })
 
 
 }

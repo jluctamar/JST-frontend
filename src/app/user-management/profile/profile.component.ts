@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
@@ -29,35 +30,47 @@ export class ProfileComponent implements OnInit {
     .pipe(filter((state) => !!state))
     .subscribe((user) => {
       this.currUser = user;
-      this.profileForm['username'].setValue = this.currUser.username
+      
+      this.formInit(this.currUser);
     }));
-    this.formInit();
   }
 
-  formInit(): void {
+  formInit(user: User): void {
     this.profileForm = this.fb.group ({
-      username: this.currUser.username,
-      email: this.currUser.email,
+      username: user.username,
+      email: user.email,
       password: new FormControl('', Validators.required), 
     })
+
   }
 
   onUserUpdate(action: string): void {
-
+    let updatedUser = {...this.currUser};
     if(action === 'update'){
       this.isUpdatingUser = true; // this will display the update fields
     } else if (action === 'confirm'){
       this.isUpdatingUser = false;
-      this.store.dispatch(updateUser({user: this.currUser}));
+      updatedUser.password =  this.profileForm.get('password').value
+      this.store.dispatch(updateUser({user: updatedUser}));
     } else if (action === 'delete') {
-      this.store.dispatch(deleteUser({user: this.currUser}));
+      this.store.dispatch(deleteUser({user: updatedUser}));
     } else {
       this.isUpdatingUser = false;
     }
   }
 
+  get username() {
+    return this.profileForm.get('username').value
+  }
+  get email() {
+    return this.profileForm.get('email').value
+  }
+  get password() {
+    return this.profileForm.get('password').value
+  }
 
-  // TODO: form login, Especially the password change field. Passsword entered should be double checked.
+
+  // TODO: form Validation, Especially the password change field. Passsword entered should be double checked.
           // COURSE OF ACTION: Add another password field have the use enter the same password in both fields and validates
 
 
