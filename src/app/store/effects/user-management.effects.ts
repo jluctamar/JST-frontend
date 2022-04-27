@@ -9,11 +9,9 @@ import {
   switchMap
 } from 'rxjs/operators';
 import { AppState } from 'src/app/app-state';
-import { AuthService } from 'src/app/services/auth.service';
 import { UserManagementService } from 'src/app/services/user-management.service';
 import { logout } from '../actions/authenticator.actions';
 import { updateErrorMsg, updateRespMsg } from '../actions/notification.actions';
-import { addCartItem, checkout, removeCartItem, updateOrderTotal } from '../actions/order-management.actions';
 import { deleteUser, updateUser, updateUserStateProperty } from '../actions/user-management.actions';
 
 @Injectable()
