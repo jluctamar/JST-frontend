@@ -1,13 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@use '~@angular/material' as mat;
 @import "~@angular/material/theming";
 
 /**  CSS VARIABLES  */
-$blue-grey: mat-color($mat-blue-grey, 700);
-$dark-grey: mat-color($mat-grey, 900);
-$light-grey: mat-color($mat-grey, 200);
+$blue-grey: mat.get-color-from-palette(mat.$blue-grey-palette, 700);
+$dark-grey: mat.get-color-from-palette(mat.$grey-palette, 900);
+$light-grey: mat.get-color-from-palette(mat.$grey-palette, 200);
 $browse-color: #d1b483;
 $light-browse-color: #ffe677;
-$toolbar: mat-color($mat-blue-grey, 900);
+$toolbar: mat.get-color-from-palette(mat.$blue-grey-palette, 900);
 $font:  Roboto, "Helvetica Neue", sans-serif;
 $mainCursiveFont: "Dancing Script", Cursive;
 $secondayCursiveFont: "Water Brush", Cursive;
