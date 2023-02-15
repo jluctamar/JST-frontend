@@ -1,4 +1,3 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
@@ -13,7 +12,7 @@ import { selectLoggedInUser } from 'src/app/store/selectors/auth.selectors';
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
-})
+}) 
 export class ProfileComponent implements OnInit {
   currUser: User;
   isUpdatingUser = false;

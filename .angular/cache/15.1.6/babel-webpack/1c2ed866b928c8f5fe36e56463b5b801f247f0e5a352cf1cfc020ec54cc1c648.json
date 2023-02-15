@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const AUTH_FEATURE_KEY = 'auth';\nexport const NOTIFICATION_FEATURE_KEY = 'notifications';\nexport const ORDER_FEATURE_KEY = 'orders';","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
